@@ -22,10 +22,7 @@
             --rule: rgba(31,42,36,.12);
             --faint: rgba(31,42,36,.46);
         }
-<<<<<<< HEAD
-=======
         * { box-sizing: border-box; }
->>>>>>> 04901ac (Agregado Tangara Maps, formulario de contacto y vista móvil)
         body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
         a { color: inherit; text-decoration: none; }
         a:hover { color: var(--accent); }
@@ -53,10 +50,7 @@
             background: var(--accentDark);
             color: var(--onDeep);
         }
-<<<<<<< HEAD
-=======
 
->>>>>>> 04901ac (Agregado Tangara Maps, formulario de contacto y vista móvil)
         .lang-switch {
             display: flex;
             align-items: center;
@@ -80,13 +74,6 @@
         }
 
         .header-inner { padding: 18px 40px; }
-<<<<<<< HEAD
-        .menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; align-items: center; justify-content: center; z-index: 100; }
-        .mobile-whatsapp-bar { display: none; }
-
-        /* Top Bar Colapsable y Navegable */
-=======
-        
         .menu-toggle { 
             display: none; 
             background: none; 
@@ -99,7 +86,6 @@
         }
         .mobile-whatsapp-bar { display: none; }
 
->>>>>>> 04901ac (Agregado Tangara Maps, formulario de contacto y vista móvil)
         .top-bar {
             background: var(--deep);
             color: rgba(246,241,232,.85);
@@ -117,11 +103,7 @@
         .top-bar a { color: inherit; transition: color 0.2s; }
         .top-bar a:hover { color: var(--onDeep); text-decoration: underline; }
 
-<<<<<<< HEAD
-        @media (max-width: 950px) {
-=======
         @media (max-width: 1024px) {
->>>>>>> 04901ac (Agregado Tangara Maps, formulario de contacto y vista móvil)
             .top-bar {
                 max-height: 0;
                 padding-top: 0;
@@ -132,10 +114,6 @@
             }
         }
 
-<<<<<<< HEAD
-        /* Menú Fullscreen (Móvil y Escritorio en pantallas estrechas) */
-=======
->>>>>>> 04901ac (Agregado Tangara Maps, formulario de contacto y vista móvil)
         .mobile-menu {
             display: none;
             position: fixed;
@@ -144,21 +122,13 @@
             background: var(--deep);
             flex-direction: column;
             justify-content: space-between;
-<<<<<<< HEAD
-            padding: 24px 32px calc(32px + env(safe-area-inset-bottom));
-=======
             padding: 32px 32px calc(32px + env(safe-area-inset-bottom));
->>>>>>> 04901ac (Agregado Tangara Maps, formulario de contacto y vista móvil)
             opacity: 0;
             transition: opacity 0.25s ease-in-out;
         }
         .mobile-menu.open { display: flex; opacity: 1; }
         .mobile-menu-header { display: flex; align-items: center; justify-content: space-between; width: 100%; }
-<<<<<<< HEAD
-        .mobile-menu nav { display: flex; flex-direction: column; gap: 16px; margin: auto 0; }
-=======
         .mobile-menu nav { display: flex; flex-direction: column; gap: 18px; margin: auto 0; }
->>>>>>> 04901ac (Agregado Tangara Maps, formulario de contacto y vista móvil)
         .mobile-menu nav a { font-family: 'Lora', Georgia, serif; font-size: 28px; font-weight: 500; color: var(--onDeep); transition: color 0.2s; }
         .mobile-menu nav a:hover { color: var(--accent); }
         .mobile-menu-footer { display: flex; flex-direction: column; gap: 20px; width: 100%; border-top: 1px solid rgba(246,241,232,0.15); padding-top: 20px; }
@@ -178,82 +148,28 @@
         .maps-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; font-weight: 600; color: var(--deep); border: 1px solid var(--rule); border-radius: 20px; padding: 9px 16px; }
         .maps-link:hover { color: var(--accent); border-color: var(--accent); }
 
-<<<<<<< HEAD
-        /* Estilos para los iconos sociales en el Footer */
-=======
->>>>>>> 04901ac (Agregado Tangara Maps, formulario de contacto y vista móvil)
-        .social-icons-footer {
-            display: flex;
-            gap: 12px;
-            margin-top: 4px;
-        }
+        .social-icons-footer { display: flex; gap: 12px; margin-top: 4px; }
         .social-icon-btn {
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
+            width: 38px; height: 38px; border-radius: 50%;
             background: rgba(246, 241, 232, 0.08);
             border: 1px solid rgba(246, 241, 232, 0.15);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--onDeep);
-            transition: all 0.2s ease;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--onDeep); transition: all 0.2s ease;
         }
-        .social-icon-btn:hover {
-            background: var(--accent);
-            border-color: var(--accent);
-            color: var(--onDeep);
-            transform: translateY(-2px);
-        }
+        .social-icon-btn:hover { background: var(--accent); border-color: var(--accent); color: var(--onDeep); transform: translateY(-2px); }
 
-<<<<<<< HEAD
-        @media (max-width: 600px) {
-            .steps { grid-template-columns: 1fr; }
-        }
-
-        @media (max-width: 950px) {
-            .header-inner { padding: 14px 20px; }
-            .desktop-nav, .desktop-actions { display: none; }
-            .menu-toggle { display: flex; }
-            .mobile-whatsapp-bar { display: flex; position: fixed; bottom: 0; left: 0; right: 0; z-index: 80; background: var(--bg); border-top: 1px solid var(--rule); padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); }
-            .mobile-whatsapp-bar a { flex: 1; text-align: center; }
-            body { padding-bottom: 68px; }
-        }
-=======
-        .desktop-actions {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: nowrap;
-        }
+        .desktop-actions { display: flex; align-items: center; gap: 12px; flex-wrap: nowrap; }
 
         @media (max-width: 1024px) {
             .header-inner { padding: 14px 24px; }
             .desktop-nav, .desktop-actions { display: none !important; }
             .menu-toggle { display: flex !important; }
-            
-            #rooms {
-                grid-template-columns: 1fr !important;
-                padding: 60px 24px !important;
-                gap: 40px !important;
-            }
-            #news > div {
-                grid-template-columns: 1fr !important;
-                gap: 32px !important;
-            }
-            footer > div:first-child {
-                grid-template-columns: 1fr !important;
-                gap: 32px !important;
-            }
+            #rooms { grid-template-columns: 1fr !important; padding: 60px 24px !important; gap: 40px !important; }
+            #news > div { grid-template-columns: 1fr !important; gap: 32px !important; }
+            footer > div:first-child { grid-template-columns: 1fr !important; gap: 32px !important; }
             .mobile-whatsapp-bar { 
-                display: flex; 
-                position: fixed; 
-                bottom: 0; 
-                left: 0; 
-                right: 0; 
-                z-index: 80; 
-                background: var(--bg); 
-                border-top: 1px solid var(--rule); 
+                display: flex; position: fixed; bottom: 0; left: 0; right: 0; z-index: 80; 
+                background: var(--bg); border-top: 1px solid var(--rule); 
                 padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); 
             }
             body { padding-bottom: 68px; }
@@ -265,7 +181,6 @@
             main section { padding-left: 16px !important; padding-right: 16px !important; }
             footer { padding: 40px 16px 20px !important; }
         }
->>>>>>> 04901ac (Agregado Tangara Maps, formulario de contacto y vista móvil)
     </style>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -274,37 +189,13 @@
             const menuToggleClose = document.querySelector('.mobile-menu .menu-toggle');
             const menuLinks = document.querySelectorAll('.mobile-menu nav a');
             
-<<<<<<< HEAD
-            const openMenu = () => {
-                mobileMenu.classList.add('open');
-                document.body.style.overflow = 'hidden';
-            };
-
-            const closeMenu = () => {
-                mobileMenu.classList.remove('open');
-                document.body.style.overflow = '';
-            };
-
-            menuToggleOpen.forEach(toggle => toggle.addEventListener('click', openMenu));
-            if (menuToggleClose) menuToggleClose.addEventListener('click', closeMenu);
-            menuLinks.forEach(link => link.addEventListener('click', closeMenu));
-=======
             if (mobileMenu) {
-                const openMenu = () => {
-                    mobileMenu.classList.add('open');
-                    document.body.style.overflow = 'hidden';
-                };
-
-                const closeMenu = () => {
-                    mobileMenu.classList.remove('open');
-                    document.body.style.overflow = '';
-                };
-
+                const openMenu = () => { mobileMenu.classList.add('open'); document.body.style.overflow = 'hidden'; };
+                const closeMenu = () => { mobileMenu.classList.remove('open'); document.body.style.overflow = ''; };
                 menuToggleOpen.forEach(toggle => toggle.addEventListener('click', openMenu));
                 if (menuToggleClose) menuToggleClose.addEventListener('click', closeMenu);
                 menuLinks.forEach(link => link.addEventListener('click', closeMenu));
             }
->>>>>>> 04901ac (Agregado Tangara Maps, formulario de contacto y vista móvil)
         });
     </script>
 </head>
@@ -316,24 +207,13 @@
   </div>
 
   <header style="position: sticky; top: 0; z-index: 40; background: rgba(244, 239, 230, 0.93); backdrop-filter: blur(14px); border-bottom: 1px solid var(--rule);">
-<<<<<<< HEAD
-    <div class="header-inner" style="max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 24px;">
-      <a href="#top" style="display: flex; align-items: center; gap: 11px;">
-        <img src="/uploads/702876787_10165380027888900_2312760133940339429_n.jpg" alt="Logo Tangara Hostel" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;" />
-        <span style="font-family: 'Lora', Georgia, serif; font-weight: 700; font-size: 21px; letter-spacing: -.012em;">Tangara Hostel</span>
-      </a>
-      
-      <nav class="desktop-nav" style="display: flex; align-items: center; gap: 24px; font-size: 14.5px; font-weight: 500;">
-=======
     <div class="header-inner" style="max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px;">
-      
       <a href="#top" style="display: flex; align-items: center; gap: 11px; flex: none;">
         <img src="/uploads/702876787_10165380027888900_2312760133940339429_n.jpg" alt="Logo Tangara Hostel" style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover;" />
         <span style="font-family: 'Lora', Georgia, serif; font-weight: 700; font-size: 20px; letter-spacing: -.012em;">Tangara Hostel</span>
       </a>
       
       <nav class="desktop-nav" style="display: flex; align-items: center; gap: 20px; font-size: 14px; font-weight: 500;">
->>>>>>> 04901ac (Agregado Tangara Maps, formulario de contacto y vista móvil)
         <a href="#rooms">Habitaciones</a>
         <a href="#whales">Ballenas</a>
         <a href="#getting-here">Cómo llegar</a>
@@ -341,24 +221,15 @@
         <a href="#contact">Contacto</a>
       </nav>
 
-<<<<<<< HEAD
-      <div class="desktop-actions" style="display: flex; align-items: center; gap: 16px;">
-        <div class="lang-switch">
-=======
       <div class="desktop-actions">
         <div class="lang-switch" style="font-size: 12px; padding: 5px 10px;">
->>>>>>> 04901ac (Agregado Tangara Maps, formulario de contacto y vista móvil)
           <a href="#es" class="active" title="Español">🇪🇸 ES</a>
           <span style="opacity: 0.3;">/</span>
           <a href="#en" title="English">🇬🇧 EN</a>
           <span style="opacity: 0.3;">/</span>
           <a href="#fr" title="Français">🇫🇷 FR</a>
         </div>
-<<<<<<< HEAD
-        <a href="https://wa.me/573152395357?text=Hola,%20quiero%20reservar%20una%20habitaci%C3%B3n" target="_blank" class="btn-primary" style="padding: 10px 18px; font-size: 14px;">Reservar WhatsApp</a>
-=======
         <a href="https://wa.me/573152395357?text=Hola,%20quiero%20reservar%20una%20habitaci%C3%B3n" target="_blank" class="btn-primary" style="padding: 9px 16px; font-size: 13.5px; white-space: nowrap;">Reservar WhatsApp</a>
->>>>>>> 04901ac (Agregado Tangara Maps, formulario de contacto y vista móvil)
       </div>
 
       <button class="menu-toggle" type="button" aria-label="Abrir menú">
@@ -401,11 +272,7 @@
 
   <main>
     <section id="top" style="width: 100%;">
-<<<<<<< HEAD
-      <div style="position: relative; width: 100%; height: 85vh; min-height: 600px; overflow: hidden; background: var(--deep);">
-=======
       <div style="position: relative; width: 100%; height: 85vh; min-height: 550px; overflow: hidden; background: var(--deep);">
->>>>>>> 04901ac (Agregado Tangara Maps, formulario de contacto y vista móvil)
         <video class="desktop-video" src="/uploads/TangaraWebHor2.mp4" autoplay muted loop playsinline preload="auto" poster="/uploads/IMG-20260420-WA0009.jpg"></video>
         <video class="mobile-video" src="/uploads/WEBTANGARAVERTICAL.mp4" autoplay muted loop playsinline preload="auto" poster="/uploads/IMG-20260420-WA0009.jpg"></video>
 
@@ -415,24 +282,15 @@
           <div class="hero-content" style="display: flex; flex-direction: column; gap: 16px; align-items: flex-start; max-width: 760px;">
             <span style="font-family: ui-monospace, Menlo, monospace; font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: rgba(246,241,232,.7);">La Barra · Pacífico colombiano</span>
             <h1 style="margin: 0; display: flex; flex-direction: column; gap: 10px; font-family: 'Lora', Georgia, serif; font-weight: 500; color: var(--onDeep);">
-<<<<<<< HEAD
-              <span style="font-size: 50px; line-height: 1.05;">Hostal en la playa de La Barra, Pacífico Colombiano</span>
-              <span style="font-size: 26px; line-height: 1.2; font-weight: 400; color: rgba(246,241,232,.82);">Tangara, en la costa de las ballenas</span>
-=======
               <span style="font-size: clamp(32px, 5vw, 50px); line-height: 1.05;">Hostal en la playa de La Barra, Pacífico Colombiano</span>
               <span style="font-size: clamp(18px, 3vw, 26px); line-height: 1.2; font-weight: 400; color: rgba(246,241,232,.82);">Tangara, en la costa de las ballenas</span>
->>>>>>> 04901ac (Agregado Tangara Maps, formulario de contacto y vista móvil)
             </h1>
             <p style="margin: 0; max-width: 500px; font-size: 16px; line-height: 1.5; color: rgba(246,241,232,.78);">A cincuenta metros de una playa tranquila y segura del Pacífico colombiano — ventiladores, toldillos, internet satelital y café recién hecho cada mañana.</p>
             <div style="display: flex; gap: 16px; margin-top: 6px;">
               <a href="https://wa.me/573152395357?text=Hola,%20quiero%20reservar%20una%20habitaci%C3%B3n" target="_blank" class="btn-primary" style="padding: 14px 26px; font-size: 15px;">Reserva por WhatsApp</a>
             </div>
           </div>
-<<<<<<< HEAD
-          <div style="text-align: right; color: rgba(246,241,232,.8); display: flex; flex-direction: column; gap: 4px; flex: none;">
-=======
           <div style="text-align: right; color: rgba(246,241,232,.8); display: flex; flex-direction: column; gap: 4px; flex: none;" class="desktop-actions">
->>>>>>> 04901ac (Agregado Tangara Maps, formulario de contacto y vista móvil)
             <span style="font-family: 'Lora', Georgia, serif; font-size: 32px; font-weight: 500; color: var(--onDeep);">$60.000</span>
             <span style="font-family: ui-monospace, Menlo, monospace; font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase;">COP · persona / noche</span>
           </div>
@@ -517,11 +375,7 @@
           </div>
         </div>
 
-<<<<<<< HEAD
-        <div class="steps">
-=======
         <div class="steps" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
->>>>>>> 04901ac (Agregado Tangara Maps, formulario de contacto y vista móvil)
           <div class="step-card">
             <div class="step-icon">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F6F1E8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17h18M4 17l1-6h14l1 6M6 11V8a2 2 0 012-2h8a2 2 0 012 2v3M9 17v2M15 17v2"/></svg>
@@ -556,88 +410,58 @@
       </div>
     </section>
 
-    <section id="news" style="max-width: 1280px; margin: 0 auto; padding: 96px 40px;">
-      <h2 style="margin: 0 0 56px 0; font-family: 'Lora', Georgia, serif; font-weight: 500; font-size: 44px;">Noticias y temporada de ballenas</h2>
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 56px;">
-        <div style="display: flex; flex-direction: column; gap: 14px;">
-          <img src="/uploads/pexels-juan-felipe-ramirez-312591454-18173772.jpg" alt="Ballena jorobada" style="width: 100%; height: 250px; object-fit: cover; border-radius: 3px;" />
-          <span style="font-family: ui-monospace, Menlo, monospace; font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--faint);">Ballenas · 12 Jul</span>
-          <h3 style="margin: 0; font-family: 'Lora', Georgia, serif; font-weight: 500; font-size: 25px;">Primeras jorobadas avistadas frente a La Barra</h3>
-          <p style="margin: 0; font-size: 15px; line-height: 1.5; color: var(--muted);">Tres avistamientos en una sola mañana desde las lanchas de Juanchaco.</p>
+    <section id="contact" style="max-width: 800px; margin: 0 auto; padding: 96px 40px;">
+      <span style="font-family: ui-monospace, Menlo, monospace; font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--deep); display: block; margin-bottom: 12px; text-align: center;">Escríbenos</span>
+      <h2 style="margin: 0 0 32px 0; font-family: 'Lora', Georgia, serif; font-weight: 500; font-size: 38px; text-align: center;">Reserva o consulta con nosotros</h2>
+      
+      <form action="https://wa.me/573152395357" method="get" target="_blank" style="display: flex; flex-direction: column; gap: 20px; background: var(--bg2); padding: 40px; border-radius: 8px; border: 1px solid var(--rule);">
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <label style="font-size: 14px; font-weight: 600;">Tu Nombre</label>
+          <input type="text" name="text" placeholder="Ej. Ana María" required style="padding: 12px; border-radius: 4px; border: 1px solid var(--rule); background: var(--bg); font-family: inherit;" />
         </div>
-        <div style="display: flex; flex-direction: column; gap: 14px;">
-          <img src="/uploads/pexels-juan-david-munoz-321167259-13758343.jpg" alt="Música tradicional" style="width: 100%; height: 250px; object-fit: cover; border-radius: 3px;" />
-          <span style="font-family: ui-monospace, Menlo, monospace; font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--faint);">Evento · 04 Jul</span>
-          <h3 style="margin: 0; font-family: 'Lora', Georgia, serif; font-weight: 500; font-size: 25px;">Arroz con piangua y música en la terraza</h3>
-          <p style="margin: 0; font-size: 15px; line-height: 1.5; color: var(--muted);">Cocina del Pacífico, grupos de canto tradicional y danzas del pueblo.</p>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <label style="font-size: 14px; font-weight: 600;">Mensaje o Fecha deseada</label>
+          <textarea name="text" rows="4" placeholder="Hola, quiero reservar para 2 personas del..." required style="padding: 12px; border-radius: 4px; border: 1px solid var(--rule); background: var(--bg); font-family: inherit;"></textarea>
         </div>
-        <div style="display: flex; flex-direction: column; gap: 14px;">
-          <img src="/uploads/pexels-andi-saiful-sidik-2160410058-36720360.jpg" alt="Artesanías" style="width: 100%; height: 250px; object-fit: cover; border-radius: 3px;" />
-          <span style="font-family: ui-monospace, Menlo, monospace; font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--faint);">Hostal · 28 Jun</span>
-          <h3 style="margin: 0; font-family: 'Lora', Georgia, serif; font-weight: 500; font-size: 25px;">Artesanía wounaan y emberá en la casa</h3>
-          <p style="margin: 0; font-size: 15px; line-height: 1.5; color: var(--muted);">Trabajo artesanal de las comunidades indígenas vecinas, ahora en exhibición.</p>
-        </div>
-      </div>
-    </section>
-
-    <section style="position: relative; width: 100%; height: 500px; overflow: hidden; background: var(--deep); margin: 40px 0;">
-      <video class="desktop-video" src="/uploads/TangaraWebHor2.mp4" autoplay muted loop playsinline preload="auto"></video>
-      <video class="mobile-video" src="/uploads/WEBTANGARAVERTICAL.mp4" autoplay muted loop playsinline preload="auto"></video>
-      <div style="position: absolute; inset: 0; background: rgba(31,42,36,0.35);"></div>
-      <div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 0 20px; color: var(--onDeep); z-index: 2;">
-        <span style="font-family: ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 10px;">La experiencia Tangara</span>
-        <h2 style="font-family: 'Lora', Georgia, serif; font-size: 36px; margin: 0 0 16px 0; max-width: 600px;">El ritmo del mar y la selva en un solo lugar</h2>
-        <a href="https://wa.me/573152395357?text=Hola,%20quiero%20vivir%20la%20experiencia%20en%20Tangara" target="_blank" class="btn-primary">Reserva tu estancia</a>
-      </div>
+        <button type="submit" class="btn-primary" style="border: none; cursor: pointer; margin-top: 10px;">Enviar mensaje por WhatsApp</button>
+      </form>
     </section>
   </main>
 
-  <footer id="contact" style="background: #19221E; color: rgba(246,241,232,0.7); padding: 60px 40px 40px; border-top: 1px solid rgba(246,241,232,0.08);">
+  <footer style="background: var(--deep); color: var(--onDeep); padding: 60px 40px 30px;">
     <div style="max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px;">
-      
-      <div style="display: flex; flex-direction: column; gap: 14px;">
-        <div style="display: flex; align-items: center; gap: 11px;">
-          <img src="/uploads/702876787_10165380027888900_2312760133940339429_n.jpg" alt="Logo Tangara Hostel" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;" />
-          <span style="font-family: 'Lora', Georgia, serif; font-weight: 700; font-size: 19px; color: var(--onDeep);">Tangara Hostel</span>
+      <div>
+        <h3 style="font-family: 'Lora', Georgia, serif; font-size: 22px; margin: 0 0 12px;">Tangara Hostel</h3>
+        <p style="color: rgba(246,241,232,0.7); font-size: 14px; line-height: 1.5; max-width: 380px; margin: 0 0 20px;">Un espacio rústico y acogedor a pocos pasos del mar en La Barra, Buenaventura. El punto de partida perfecto para ballenas, manglares y descanso.</p>
+        <div class="social-icons-footer">
+          <a href="https://instagram.com" target="_blank" class="social-icon-btn" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://facebook.com" target="_blank" class="social-icon-btn" aria-label="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3.8l.2-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
         </div>
-        <p style="margin: 0; font-size: 14px; line-height: 1.6; max-width: 380px; color: rgba(246,241,232,0.6);">
-          Tu refugio frente al mar en La Barra, Buenaventura. Disfruta de la naturaleza, el avistamiento de ballenas, la gastronomía tradicional y el mejor descanso del Pacífico colombiano.
+      </div>
+      <div>
+        <h4 style="font-size: 14px; text-transform: uppercase; letter-spacing: .1em; margin: 0 0 16px; color: var(--gold);">Navegación</h4>
+        <div style="display: flex; flex-direction: column; gap: 10px; font-size: 14px;">
+          <a href="#rooms" style="color: rgba(246,241,232,0.8);">Habitaciones</a>
+          <a href="#whales" style="color: rgba(246,241,232,0.8);">Ballenas</a>
+          <a href="#getting-here" style="color: rgba(246,241,232,0.8);">Cómo llegar</a>
+          <a href="#contact" style="color: rgba(246,241,232,0.8);">Contacto</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="font-size: 14px; text-transform: uppercase; letter-spacing: .1em; margin: 0 0 16px; color: var(--gold);">Contacto</h4>
+        <p style="color: rgba(246,241,232,0.8); font-size: 14px; line-height: 1.6; margin: 0;">
+          La Barra, Buenaventura<br>
+          Valle del Cauca, Colombia<br>
+          WhatsApp: +57 315 239 5357
         </p>
       </div>
-
-      <div style="display: flex; flex-direction: column; gap: 10px;">
-        <span style="font-family: ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--onDeep); margin-bottom: 6px;">Navegación</span>
-        <a href="#rooms" style="font-size: 14px; transition: color 0.2s;">Habitaciones</a>
-        <a href="#whales" style="font-size: 14px; transition: color 0.2s;">Temporada de Ballenas</a>
-        <a href="#getting-here" style="font-size: 14px; transition: color 0.2s;">Cómo llegar</a>
-        <a href="#news" style="font-size: 14px; transition: color 0.2s;">Noticias</a>
-      </div>
-
-      <div style="display: flex; flex-direction: column; gap: 10px;">
-        <span style="font-family: ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--onDeep); margin-bottom: 6px;">Conéctate</span>
-        <a href="https://wa.me/573152395357?text=Hola,%20quiero%20reservar%20una%20habitaci%C3%B3n" target="_blank" style="font-size: 14px; transition: color 0.2s;">WhatsApp Directo</a>
-        
-        <div class="social-icons-footer">
-          <a href="https://www.facebook.com/61590189811032/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Facebook de Tangara Hostel" title="Facebook Oficial">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-          </a>
-          <a href="https://www.instagram.com/tangarahostel/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Instagram de Tangara Hostel" title="Instagram Oficial">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-          </a>
-        </div>
-
-        <span style="font-size: 13px; color: rgba(246,241,232,0.4); margin-top: 6px;">La Barra, Valle del Cauca, Colombia</span>
-      </div>
-
     </div>
-
-<<<<<<< HEAD
-    <div style="max-width: 1280px; margin: 0 auto; border-top: 1px solid rgba(246,241,232,0.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; font-size: 12.5px; color: rgba(246,241,232,0.4);">
-=======
-    <div style="max-width: 1280px; margin: 0 auto; border-top: 1px solid rgba(246,241,232,0.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; font-size: 12.5px; color: rgba(246,241,232,0.4); gap: 10px;">
->>>>>>> 04901ac (Agregado Tangara Maps, formulario de contacto y vista móvil)
-      <span>© 2026 Tangara Hostel. Todos los derechos reservados.</span>
-      <span>Pacífico Colombiano 🇨🇴</span>
+    <div style="max-width: 1280px; margin: 0 auto; border-top: 1px solid rgba(246,241,232,0.15); padding-top: 20px; text-align: center; font-size: 12.5px; color: rgba(246,241,232,0.5);">
+      © 2026 Tangara Hostel. Todos los derechos reservados.
     </div>
   </footer>
 
