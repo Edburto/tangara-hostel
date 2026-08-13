@@ -365,6 +365,9 @@
           <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-top: 12px;">
             <p style="font-size: 12.5px; color: var(--muted); margin: 0; font-family: ui-monospace, Menlo, monospace; letter-spacing: .04em;">Ruta paso a paso hacia el hostal</p>
             <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+              <a href="https://maps.app.goo.gl/ssTiJq6bhY4uqmSJ8" target="_blank" rel="noopener noreferrer" class="maps-link" style="background: var(--deep); color: var(--onDeep); border-color: var(--deep);">
+                Ver ruta en Google Maps
+              </a>
               <a href="https://wa.me/573152395357?text=Hola,%20necesito%20ayuda%20con%20las%20indicaciones%20para%20llegar%20a%20La%20Barra" target="_blank" class="maps-link">
                 ¿Dudas para llegar? Escríbenos
               </a>
@@ -411,18 +414,36 @@
       <span style="font-family: ui-monospace, Menlo, monospace; font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--deep); display: block; margin-bottom: 12px; text-align: center;">Escríbenos</span>
       <h2 style="margin: 0 0 32px 0; font-family: 'Lora', Georgia, serif; font-weight: 500; font-size: 38px; text-align: center;">Reserva o consulta con nosotros</h2>
       
-      <form action="https://wa.me/573152395357" method="get" target="_blank" style="display: flex; flex-direction: column; gap: 20px; background: var(--bg2); padding: 40px; border-radius: 8px; border: 1px solid var(--rule);">
+      <form onsubmit="enviarConsultaWhatsApp(event)" style="display: flex; flex-direction: column; gap: 20px; background: var(--bg2); padding: 40px; border-radius: 8px; border: 1px solid var(--rule);">
         <div style="display: flex; flex-direction: column; gap: 8px;">
-          <label style="font-size: 14px; font-weight: 600;">Tu Nombre</label>
-          <input type="text" name="text" placeholder="Ej. Ana María" required style="padding: 12px; border-radius: 4px; border: 1px solid var(--rule); background: var(--bg); font-family: inherit;" />
+          <label for="clientName" style="font-size: 14px; font-weight: 600;">Tu Nombre</label>
+          <input type="text" id="clientName" placeholder="Ej. Ana María" required style="padding: 12px; border-radius: 4px; border: 1px solid var(--rule); background: var(--bg); font-family: inherit;" />
         </div>
         <div style="display: flex; flex-direction: column; gap: 8px;">
-          <label style="font-size: 14px; font-weight: 600;">Mensaje o Fecha deseada</label>
-          <textarea name="text" rows="4" placeholder="Hola, quiero reservar para 2 personas del..." required style="padding: 12px; border-radius: 4px; border: 1px solid var(--rule); background: var(--bg); font-family: inherit;"></textarea>
+          <label for="clientDates" style="font-size: 14px; font-weight: 600;">Fechas y número de personas</label>
+          <input type="text" id="clientDates" placeholder="Ej. 2 personas, del 15 al 18 de agosto" required style="padding: 12px; border-radius: 4px; border: 1px solid var(--rule); background: var(--bg); font-family: inherit;" />
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <label for="clientMessage" style="font-size: 14px; font-weight: 600;">Mensaje (opcional)</label>
+          <textarea id="clientMessage" rows="4" placeholder="¿Tienes alguna duda sobre cómo llegar o alimentación?" style="padding: 12px; border-radius: 4px; border: 1px solid var(--rule); background: var(--bg); font-family: inherit; resize: vertical;"></textarea>
         </div>
         <button type="submit" class="btn-primary" style="border: none; cursor: pointer; margin-top: 10px;">Enviar mensaje por WhatsApp</button>
       </form>
     </section>
+
+    <script is:inline>
+      function enviarConsultaWhatsApp(event) {
+        event.preventDefault();
+        const nombre = document.getElementById('clientName').value;
+        const fechas = document.getElementById('clientDates').value;
+        const mensaje = document.getElementById('clientMessage').value;
+
+        let texto = `Hola Tangara Hostel,\n\nMi nombre es ${nombre}.\nFechas y personas: ${fechas}`;
+        if (mensaje) texto += `\nMensaje: ${mensaje}`;
+
+        window.open(`https://wa.me/573152395357?text=${encodeURIComponent(texto)}`, '_blank', 'noopener');
+      }
+    </script>
   </main>
 
   <footer style="background: var(--deep); color: var(--onDeep); padding: 60px 40px 30px;">
