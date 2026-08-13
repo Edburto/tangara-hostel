@@ -103,30 +103,6 @@
             }
         }
 
-        /* Reproductor Flotante Global */
-        .global-audio-widget {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            z-index: 75;
-            background: rgba(47, 93, 80, 0.95);
-            backdrop-filter: blur(12px);
-            color: var(--onDeep);
-            padding: 10px 16px;
-            border-radius: 40px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            border: 1px solid rgba(246, 241, 232, 0.15);
-            max-width: 320px;
-            transition: transform 0.3s ease-in-out;
-        }
-        .global-audio-widget.hidden { transform: translateY(100px); }
-        .audio-widget-info { display: flex; flex-direction: column; overflow: hidden; }
-        .audio-widget-title { font-size: 12.5px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .audio-widget-sub { font-family: ui-monospace, Menlo, monospace; font-size: 9.5px; letter-spacing: .06em; color: rgba(246, 241, 232, 0.7); text-transform: uppercase; }
-
         /* Menú Fullscreen (Móvil y Escritorio en pantallas estrechas) */
         .mobile-menu {
             display: none;
@@ -151,8 +127,6 @@
         .route-point { cursor: pointer; }
         .route-point circle.dot { transition: r 0.2s; }
         .route-point:hover circle.dot { r: 8; }
-        .route-tooltip { opacity: 0; pointer-events: none; transition: opacity 0.2s; }
-        .route-point:hover + .route-tooltip, .route-tooltip:hover { opacity: 1; }
 
         .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 28px; }
         .step-card { background: var(--bg); border: 1px solid var(--rule); border-radius: 8px; padding: 24px; display: flex; gap: 16px; align-items: flex-start; }
@@ -166,7 +140,6 @@
 
         @media (max-width: 600px) {
             .steps { grid-template-columns: 1fr; }
-            .global-audio-widget { bottom: 76px; right: 16px; left: 16px; max-width: none; }
         }
 
         @media (max-width: 950px) {
@@ -184,18 +157,15 @@
             const menuToggleOpen = document.querySelectorAll('.menu-toggle');
             const menuToggleClose = document.querySelector('.mobile-menu .menu-toggle');
             const menuLinks = document.querySelectorAll('.mobile-menu nav a');
-            const audioWidget = document.querySelector('.global-audio-widget');
             
             const openMenu = () => {
                 mobileMenu.classList.add('open');
                 document.body.style.overflow = 'hidden';
-                if (audioWidget) audioWidget.classList.add('hidden');
             };
 
             const closeMenu = () => {
                 mobileMenu.classList.remove('open');
                 document.body.style.overflow = '';
-                if (audioWidget) audioWidget.classList.remove('hidden');
             };
 
             menuToggleOpen.forEach(toggle => toggle.addEventListener('click', openMenu));
@@ -223,7 +193,6 @@
         <a href="#whales">Ballenas</a>
         <a href="#getting-here">Cómo llegar</a>
         <a href="#news">Noticias</a>
-        <a href="#playlist">Playlist</a>
         <a href="#contact">Contacto</a>
       </nav>
 
@@ -244,17 +213,6 @@
     </div>
   </header>
 
-  <div class="global-audio-widget" aria-label="Reproductor de música flotante">
-    <div style="background: var(--accent); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex: none;">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--onDeep)"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
-    </div>
-    <div class="audio-widget-info">
-      <span class="audio-widget-title">Festival Petronio Álvarez · Raíz</span>
-      <span class="audio-widget-sub">Marimba, chonta y río</span>
-    </div>
-    <a href="#playlist" style="font-size: 11px; font-weight: 600; background: rgba(246,241,232,0.15); padding: 5px 10px; border-radius: 12px; white-space: nowrap; margin-left: auto;">Ver playlist</a>
-  </div>
-
   <div class="mobile-menu" id="mobileMenu">
     <div class="mobile-menu-header">
       <span style="font-family: 'Lora', Georgia, serif; font-weight: 700; font-size: 21px; color: var(--onDeep);">Tangara Hostel</span>
@@ -268,7 +226,7 @@
       <a href="#whales">Ballenas</a>
       <a href="#getting-here">Cómo llegar</a>
       <a href="#news">Noticias</a>
-      <a href="#playlist">Playlist</a>
+      <a href="#contact">Contacto</a>
     </nav>
 
     <div class="mobile-menu-footer">
@@ -461,30 +419,9 @@
         <a href="https://wa.me/573152395357?text=Hola,%20quiero%20vivir%20la%20experiencia%20en%20Tangara" target="_blank" class="btn-primary">Reserva tu estancia</a>
       </div>
     </section>
-
-    <section id="playlist" style="background: var(--deep); color: var(--onDeep); padding: 80px 40px; text-align: center;">
-      <div style="max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; align-items: center;">
-        <span style="font-family: ui-monospace, Menlo, monospace; font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--accent);">03 — Sonido Local</span>
-        <h2 style="margin: 0; font-family: 'Lora', Georgia, serif; font-weight: 500; font-size: 38px;">Marimba y río para vivir el Pacífico</h2>
-        <p style="margin: 0; font-size: 16px; color: rgba(246,241,232,0.8); line-height: 1.6;">Sube el volumen: marimba de chonta, currulao y cantadoras tradicionales del Petronio Álvarez para conectar con la vibra de La Barra antes de poner un pie en el hostal.</p>
-        
-        <div style="width: 100%; margin-top: 10px; border-radius: 12px; overflow: hidden;">
-          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX8kICRTOeN9t?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-        </div>
-        
-        <div style="margin-top: 20px; display: flex; gap: 16px; justify-content: center; align-items: center;" id="contact">
-          <a href="https://www.facebook.com/61590189811032/" target="_blank" rel="noopener noreferrer" class="maps-link" style="color: var(--onDeep); border-color: rgba(246,241,232,0.3);">
-            Facebook Oficial
-          </a>
-          <a href="https://www.instagram.com/tangarahostel/" target="_blank" rel="noopener noreferrer" class="maps-link" style="color: var(--onDeep); border-color: rgba(246,241,232,0.3);">
-            Instagram Oficial
-          </a>
-        </div>
-      </div>
-    </section>
   </main>
 
-  <footer style="background: #19221E; color: rgba(246,241,232,0.7); padding: 60px 40px 40px; border-top: 1px solid rgba(246,241,232,0.08);">
+  <footer id="contact" style="background: #19221E; color: rgba(246,241,232,0.7); padding: 60px 40px 40px; border-top: 1px solid rgba(246,241,232,0.08);">
     <div style="max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px;">
       
       <div style="display: flex; flex-direction: column; gap: 14px;">
@@ -503,7 +440,6 @@
         <a href="#whales" style="font-size: 14px; transition: color 0.2s;">Temporada de Ballenas</a>
         <a href="#getting-here" style="font-size: 14px; transition: color 0.2s;">Cómo llegar</a>
         <a href="#news" style="font-size: 14px; transition: color 0.2s;">Noticias</a>
-        <a href="#playlist" style="font-size: 14px; transition: color 0.2s;">Playlist</a>
       </div>
 
       <div style="display: flex; flex-direction: column; gap: 10px;">
@@ -516,7 +452,7 @@
 
     </div>
 
-    <div style="max-width: 1280px; margin: 0 auto; border-top: 1px solid rgba(246,241,232,0.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: gap; font-size: 12.5px; color: rgba(246,241,232,0.4);">
+    <div style="max-width: 1280px; margin: 0 auto; border-top: 1px solid rgba(246,241,232,0.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; font-size: 12.5px; color: rgba(246,241,232,0.4);">
       <span>© 2026 Tangara Hostel. Todos los derechos reservados.</span>
       <span>Pacífico Colombiano 🇨🇴</span>
     </div>
