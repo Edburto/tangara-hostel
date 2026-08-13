@@ -1,932 +1,151 @@
 ---
-// Diseño Tangara Hostel - La Barra, Pacífico Colombiano
-// Inspirado en el diseño DC original con mejoras sofisticadas
 ---
-
-<!DOCTYPE html>
 <html lang="es">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-		<title>Tangara Hostel · La Barra, Pacífico colombiano — hostal frente a la playa</title>
-		<meta name="description" content="Hostal a 50 metros de la playa de La Barra, Buenaventura. Habitaciones con ventilador y toldillo, internet satelital, café recién hecho. Avistamiento de ballenas de julio a octubre. Desde $50.000 COP por persona." />
-		<meta name="theme-color" content="#2F5D50" />
-		<style>
-			:root {
-				--bg: #F4EFE6;
-				--bg2: #E9E2D4;
-				--ink: #1F2A24;
-				--deep: #2F5D50;
-				--accent: #E07A5F;
-				--accentDark: #C95A3A;
-				--rule: #E5D9C9;
-				--rule2: #D4C5B9;
-				--muted: #5C6B62;
-				--faint: #8B9189;
-				--onDeep: #F4EFE6;
-				--gold: #C9A24B;
-			}
-
-			* {
-				margin: 0;
-				padding: 0;
-				box-sizing: border-box;
-			}
-
-			body {
-				margin: 0;
-				background: var(--bg);
-				color: var(--ink);
-				font-family: 'Inter', system-ui, sans-serif;
-				-webkit-font-smoothing: antialiased;
-				line-height: 1.6;
-			}
-
-			a {
-				color: inherit;
-				text-decoration: none;
-			}
-			a:hover {
-				color: var(--accent);
-			}
-
-			img, video {
-				max-width: 100%;
-				display: block;
-			}
-
-			/* Ticker */
-			.ticker {
-				background: var(--deep);
-				color: rgba(246, 241, 232, 0.8);
-				padding: 9px 2rem;
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
-				gap: 16px;
-				font-family: ui-monospace, Menlo, monospace;
-				font-size: 10.5px;
-				letter-spacing: 0.14em;
-				text-transform: uppercase;
-			}
-
-			.ticker .desktop {
-				display: flex;
-			}
-
-			.ticker .mobile {
-				display: none;
-			}
-
-			/* Header */
-			header {
-				position: sticky;
-				top: 0;
-				z-index: 40;
-				background: rgba(31, 42, 36, 0.93);
-				backdrop-filter: blur(14px);
-				border-bottom: 1px solid var(--rule);
-			}
-
-			.header-inner {
-				max-width: 1280px;
-				margin: 0 auto;
-				padding: 1rem 2rem;
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
-				gap: 24px;
-			}
-
-			.logo {
-				display: flex;
-				align-items: center;
-				gap: 11px;
-				min-width: 0;
-			}
-
-			.logo img {
-				width: 40px;
-				height: 40px;
-				border-radius: 50%;
-				object-fit: cover;
-			}
-
-			.logo-text {
-				font-family: 'Lora', Georgia, serif;
-				font-weight: 700;
-				font-size: 18px;
-				letter-spacing: -0.012em;
-				color: var(--onDeep);
-				white-space: nowrap;
-			}
-
-			nav {
-				display: flex;
-				align-items: center;
-				gap: 30px;
-				font-size: 14.5px;
-				font-weight: 500;
-				color: var(--onDeep);
-			}
-
-			nav a {
-				color: var(--onDeep);
-				transition: color 0.2s ease;
-			}
-
-			nav a:hover {
-				color: var(--accent);
-			}
-
-			.header-actions {
-				display: flex;
-				align-items: center;
-				gap: 18px;
-				margin-left: auto;
-			}
-
-			.lang-select {
-				display: flex;
-				align-items: flex-end;
-				gap: 14px;
-				font-family: ui-monospace, Menlo, monospace;
-				font-size: 11px;
-				letter-spacing: 0.1em;
-				color: rgba(246, 241, 232, 0.55);
-			}
-
-			.lang-btn {
-				border: none;
-				background: transparent;
-				cursor: pointer;
-				font: inherit;
-				letter-spacing: inherit;
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				gap: 4px;
-				color: rgba(246, 241, 232, 0.6);
-				opacity: 0.6;
-				transition: all 0.2s;
-			}
-
-			.lang-btn.active {
-				color: var(--onDeep);
-				font-weight: 600;
-				opacity: 1;
-			}
-
-			.reserve-btn {
-				background: var(--accent);
-				color: var(--onDeep);
-				border-radius: 3px;
-				padding: 11px 20px;
-				font-size: 14.5px;
-				font-weight: 600;
-				white-space: nowrap;
-				transition: background 0.2s;
-			}
-
-			.reserve-btn:hover {
-				background: var(--accentDark);
-			}
-
-			/* Hero */
-			.hero {
-				position: relative;
-				height: 760px;
-				overflow: hidden;
-				background: var(--deep);
-				padding: 0;
-			}
-
-			.hero img {
-				position: absolute;
-				inset: 0;
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
-			}
-
-			.hero::after {
-				content: '';
-				position: absolute;
-				inset: 0;
-				background: linear-gradient(to top, rgba(28, 26, 23, 0.78) 0%, rgba(28, 26, 23, 0.25) 42%, transparent 70%);
-			}
-
-			.hero-content {
-				position: absolute;
-				bottom: 44px;
-				left: 44px;
-				right: 44px;
-				z-index: 1;
-				display: flex;
-				justify-content: space-between;
-				gap: 60px;
-				align-items: flex-end;
-			}
-
-			.hero-text {
-				display: flex;
-				flex-direction: column;
-				gap: 20px;
-				color: var(--onDeep);
-				max-width: 760px;
-			}
-
-			.hero-kicker {
-				font-family: ui-monospace, Menlo, monospace;
-				font-size: 10.5px;
-				letter-spacing: 0.16em;
-				text-transform: uppercase;
-				color: rgba(246, 241, 232, 0.7);
-			}
-
-			.hero h1 {
-				margin: 0;
-				font-family: 'Lora', Georgia, serif;
-				font-weight: 500;
-				font-size: 60px;
-				line-height: 0.98;
-				letter-spacing: -0.012em;
-				text-wrap: pretty;
-			}
-
-			.hero-subtitle {
-				margin: 0;
-				font-size: 34px;
-				line-height: 1.1;
-				font-weight: 400;
-				color: rgba(246, 241, 232, 0.82);
-			}
-
-			.hero-body {
-				margin: 0;
-				font-size: 18px;
-				line-height: 1.5;
-				color: rgba(246, 241, 232, 0.78);
-				max-width: 470px;
-			}
-
-			.hero-actions {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 16px;
-				margin-top: 4px;
-			}
-
-			.btn-primary {
-				background: var(--accent);
-				color: var(--onDeep);
-				border-radius: 3px;
-				padding: 16px 30px;
-				font-size: 16.5px;
-				font-weight: 600;
-				display: inline-block;
-				white-space: nowrap;
-				transition: background 0.2s;
-			}
-
-			.btn-primary:hover {
-				background: var(--accentDark);
-			}
-
-			.btn-secondary {
-				color: var(--onDeep);
-				font-size: 15px;
-				border-bottom: 1px solid rgba(246, 241, 232, 0.4);
-				padding-bottom: 2px;
-				transition: border-color 0.2s;
-			}
-
-			.btn-secondary:hover {
-				border-color: var(--onDeep);
-			}
-
-			.hero-price {
-				text-align: right;
-				color: rgba(246, 241, 232, 0.8);
-				display: flex;
-				flex-direction: column;
-				gap: 4px;
-				flex: none;
-			}
-
-			.hero-price-amount {
-				font-family: 'Lora', Georgia, serif;
-				font-size: 34px;
-				font-weight: 500;
-				letter-spacing: -0.012em;
-				color: var(--onDeep);
-			}
-
-			.hero-price-label {
-				font-family: ui-monospace, Menlo, monospace;
-				font-size: 10.5px;
-				letter-spacing: 0.14em;
-				text-transform: uppercase;
-			}
-
-			/* Features */
-			.features {
-				max-width: 1280px;
-				margin: 0 auto;
-				padding: 96px 2rem;
-				display: grid;
-				grid-template-columns: 1fr 1fr;
-				gap: 56px;
-			}
-
-			.feature-card {
-				display: flex;
-				flex-direction: column;
-				gap: 18px;
-			}
-
-			.feature-card img {
-				width: 100%;
-				height: 340px;
-				object-fit: cover;
-				border-radius: 3px;
-			}
-
-			.feature-label {
-				font-family: ui-monospace, Menlo, monospace;
-				font-size: 10.5px;
-				letter-spacing: 0.16em;
-				color: var(--deep);
-				text-transform: uppercase;
-			}
-
-			.feature-card h2 {
-				margin: 0;
-				font-family: 'Lora', Georgia, serif;
-				font-weight: 500;
-				font-size: 38px;
-				line-height: 1.04;
-				letter-spacing: -0.012em;
-			}
-
-			.feature-card p {
-				margin: 0;
-				max-width: 520px;
-				font-size: 16.5px;
-				line-height: 1.55;
-				color: var(--muted);
-			}
-
-			.feature-card a {
-				align-self: flex-start;
-				font-size: 15px;
-				font-weight: 500;
-				border-bottom: 1px solid var(--rule2);
-				padding-bottom: 2px;
-			}
-
-			/* News */
-			.news-section {
-				background: var(--bg2);
-				border-top: 1px solid var(--rule);
-				border-bottom: 1px solid var(--rule);
-				padding: 96px 2rem;
-			}
-
-			.news-container {
-				max-width: 1280px;
-				margin: 0 auto;
-			}
-
-			.news-header {
-				display: flex;
-				flex-wrap: wrap;
-				align-items: baseline;
-				justify-content: space-between;
-				gap: 16px;
-				margin-bottom: 56px;
-			}
-
-			.news-header h2 {
-				margin: 0;
-				font-family: 'Lora', Georgia, serif;
-				font-weight: 500;
-				font-size: 44px;
-				letter-spacing: -0.012em;
-				text-wrap: pretty;
-			}
-
-			.news-header a {
-				display: inline-flex;
-				align-items: center;
-				gap: 9px;
-				font-size: 15px;
-				font-weight: 500;
-				border-bottom: 1px solid var(--rule2);
-				padding-bottom: 2px;
-			}
-
-			.news-grid {
-				display: grid;
-				grid-template-columns: repeat(3, 1fr);
-				gap: 56px;
-			}
-
-			.news-card {
-				display: flex;
-				flex-direction: column;
-				gap: 14px;
-			}
-
-			.news-card img {
-				width: 100%;
-				height: 250px;
-				object-fit: cover;
-				border-radius: 3px;
-			}
-
-			.news-meta {
-				display: flex;
-				gap: 12px;
-				align-items: center;
-				font-family: ui-monospace, Menlo, monospace;
-				font-size: 10.5px;
-				letter-spacing: 0.14em;
-				text-transform: uppercase;
-				color: var(--faint);
-			}
-
-			.news-tag {
-				color: var(--deep);
-			}
-
-			.news-card h3 {
-				margin: 0;
-				font-family: 'Lora', Georgia, serif;
-				font-weight: 500;
-				font-size: 25px;
-				line-height: 1.12;
-				letter-spacing: -0.012em;
-			}
-
-			.news-card p {
-				margin: 0;
-				font-size: 15px;
-				line-height: 1.5;
-				color: var(--muted);
-			}
-
-			/* Video Band */
-			.video-band {
-				position: relative;
-				min-height: 520px;
-				background: var(--deep);
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				justify-content: center;
-				gap: 22px;
-				text-align: center;
-				padding: 80px 2rem;
-				overflow: hidden;
-			}
-
-			.video-band img {
-				position: absolute;
-				inset: 0;
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
-				opacity: 0.8;
-			}
-
-			.video-band::before {
-				content: '';
-				position: absolute;
-				inset: 0;
-				background: rgba(31, 42, 36, 0.45);
-				z-index: 1;
-			}
-
-			.video-content {
-				position: relative;
-				z-index: 2;
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				gap: 22px;
-			}
-
-			.play-btn {
-				width: 88px;
-				height: 88px;
-				border-radius: 50%;
-				border: 1px solid rgba(246, 241, 232, 0.4);
-				background: transparent;
-				color: var(--onDeep);
-				font-size: 20px;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				cursor: pointer;
-				transition: all 0.2s;
-			}
-
-			.play-btn:hover {
-				background: var(--accent);
-				border-color: var(--deep);
-			}
-
-			.video-band h2 {
-				margin: 0;
-				font-family: 'Lora', Georgia, serif;
-				font-weight: 500;
-				font-size: 56px;
-				line-height: 1.02;
-				letter-spacing: -0.012em;
-				color: var(--onDeep);
-			}
-
-			.video-band p {
-				margin: 0;
-				font-size: 18px;
-				line-height: 1.5;
-				color: rgba(246, 241, 232, 0.65);
-				max-width: 520px;
-			}
-
-			/* Footer */
-			footer {
-				background: var(--bg);
-				padding: 72px 2rem 44px;
-			}
-
-			.footer-container {
-				max-width: 1280px;
-				margin: 0 auto;
-			}
-
-			.footer-grid {
-				display: grid;
-				grid-template-columns: 1.5fr 1fr 1fr 1fr;
-				gap: 48px;
-				margin-bottom: 56px;
-			}
-
-			.footer-brand {
-				display: flex;
-				flex-direction: column;
-				gap: 14px;
-				align-items: flex-start;
-			}
-
-			.footer-logo {
-				width: 70px;
-				height: 70px;
-				border-radius: 50%;
-				object-fit: cover;
-			}
-
-			.footer-brand h3 {
-				margin: 0;
-				font-family: 'Lora', Georgia, serif;
-				font-weight: 700;
-				font-size: 24px;
-				letter-spacing: -0.012em;
-				color: var(--ink);
-			}
-
-			.footer-brand p {
-				margin: 0;
-				font-size: 15px;
-				line-height: 1.55;
-				color: var(--muted);
-			}
-
-			.footer-col h4 {
-				margin: 0 0 11px 0;
-				font-family: ui-monospace, Menlo, monospace;
-				font-size: 10.5px;
-				letter-spacing: 0.14em;
-				text-transform: uppercase;
-				color: var(--faint);
-				font-weight: 500;
-			}
-
-			.footer-col a {
-				display: block;
-				font-size: 15px;
-				margin-bottom: 11px;
-				transition: color 0.2s;
-			}
-
-			.footer-col a:last-child {
-				margin-bottom: 0;
-			}
-
-			.footer-col a:hover {
-				color: var(--accent);
-			}
-
-			.footer-divider {
-				border-top: 1px solid var(--rule);
-				padding-top: 18px;
-				display: flex;
-				flex-wrap: wrap;
-				gap: 10px;
-				justify-content: space-between;
-				font-family: ui-monospace, Menlo, monospace;
-				font-size: 10.5px;
-				letter-spacing: 0.12em;
-				text-transform: uppercase;
-				color: var(--faint);
-			}
-
-			/* Responsive */
-			@media (max-width: 1024px) {
-				.features {
-					grid-template-columns: 1fr;
-					gap: 48px;
-				}
-
-				.news-grid {
-					grid-template-columns: repeat(2, 1fr);
-					gap: 40px;
-				}
-
-				.footer-grid {
-					grid-template-columns: repeat(2, 1fr);
-					gap: 40px;
-				}
-
-				nav {
-					display: none;
-				}
-
-				.hero h1 {
-					font-size: 48px;
-				}
-
-				.ticker .desktop {
-					display: none;
-				}
-
-				.ticker .mobile {
-					display: flex;
-				}
-			}
-
-			@media (max-width: 768px) {
-				.header-inner {
-					padding: 1rem;
-					gap: 12px;
-				}
-
-				.logo-text {
-					font-size: 16px;
-				}
-
-				.header-actions {
-					margin-left: 0;
-				}
-
-				.lang-select {
-					display: none;
-				}
-
-				.hero {
-					height: 640px;
-				}
-
-				.hero-content {
-					flex-direction: column;
-					bottom: 20px;
-					left: 20px;
-					right: 20px;
-					align-items: flex-start;
-				}
-
-				.hero h1 {
-					font-size: 34px;
-				}
-
-				.hero-subtitle {
-					font-size: 22px;
-				}
-
-				.hero-price {
-					align-self: flex-start;
-					text-align: left;
-				}
-
-				.features {
-					padding: 56px 1rem;
-					gap: 40px;
-				}
-
-				.feature-card img {
-					height: 240px;
-				}
-
-				.feature-card h2 {
-					font-size: 30px;
-				}
-
-				.news-section {
-					padding: 56px 1rem;
-				}
-
-				.news-header h2 {
-					font-size: 32px;
-				}
-
-				.news-grid {
-					grid-template-columns: 1fr;
-					gap: 40px;
-				}
-
-				.news-card img {
-					height: 220px;
-				}
-
-				.video-band {
-					min-height: 440px;
-					padding: 64px 1rem;
-				}
-
-				.video-band h2 {
-					font-size: 34px;
-				}
-
-				.footer-grid {
-					grid-template-columns: 1fr;
-					gap: 34px;
-				}
-
-				footer {
-					padding: 56px 1rem 44px;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<!-- Ticker -->
-		<div class="ticker">
-			<span class="desktop">Temporada de ballenas · Julio – Octubre</span>
-			<span class="desktop">La Barra, Pacífico colombiano · 15 min desde Juanchaco</span>
-			<span class="mobile">La Barra, Pacífico Colombiano</span>
-		</div>
-
-		<!-- Header -->
-		<header>
-			<div class="header-inner">
-				<a href="#" class="logo">
-					<img src="/uploads/702876787_10165380027888900_2312760133940339429_n.jpg" alt="Logo de Tangara Hostel" />
-					<span class="logo-text">Tangara Hostel</span>
-				</a>
-				<nav>
-					<a href="#rooms">Habitaciones</a>
-					<a href="#whales">Temporada de ballenas</a>
-					<a href="#getting">Cómo llegar</a>
-					<a href="#news">Noticias</a>
-					<a href="#contact">Contacto</a>
-				</nav>
-				<div class="header-actions">
-					<div class="lang-select">
-						<button class="lang-btn active">ES</button>
-						<button class="lang-btn">EN</button>
-						<button class="lang-btn">FR</button>
-					</div>
-					<a href="#reserve" class="reserve-btn">Reserva</a>
-				</div>
-			</div>
-		</header>
-
-		<!-- Hero -->
-		<section class="hero">
-			<img src="/uploads/IMG-20260420-WA0009.jpg" alt="Atardecer sobre la playa de La Barra, Pacífico colombiano" />
-			<div class="hero-content">
-				<div class="hero-text">
-					<div class="hero-kicker">La Barra · Pacífico Colombiano</div>
-					<h1>Hostal frente a la playa en La Barra</h1>
-					<p class="hero-subtitle">Tangara, en la costa de las ballenas</p>
-					<p class="hero-body">A 50 metros de una playa tranquila del Pacífico colombiano — ventiladores, toldillos, internet satelital de alta velocidad y café recién hecho cada mañana.</p>
-					<div class="hero-actions">
-						<a href="#reserve" class="btn-primary">Reserva una habitación</a>
-						<a href="#availability" class="btn-secondary">Revisa disponibilidad</a>
-					</div>
-				</div>
-				<div class="hero-price">
-					<div class="hero-price-amount">$50.000</div>
-					<div class="hero-price-label">COP · persona / noche</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- Features -->
-		<section id="rooms" class="features">
-			<div class="feature-card">
-				<img src="/uploads/IMG-20260406-WA0063.jpg" alt="Hamacas en la terraza de Tangara Hostel" />
-				<span class="feature-label">01 — Alojamiento</span>
-				<h2>Habitaciones frescas, café al amanecer</h2>
-				<p>Habitaciones con ventiladores y toldillos para una noche completamente protegida, y un termo de café recién hecho cada mañana. Internet satelital de alta velocidad y energía disponible, así que puedes trabajar desde aquí.</p>
-				<a href="#rooms-detail">Ver las habitaciones</a>
-			</div>
-			<div class="feature-card">
-				<img src="/uploads/IMG-20260420-WA0011.jpg" alt="Camino de entrada al hostal" />
-				<span class="feature-label">02 — Experiencias</span>
-				<h2>Ballenas, manglares y olas</h2>
-				<p>Avistamiento de ballenas y de aves en temporada, senderos eco-turísticos en los estuarios, pesca de pargo en los manglares, y las olas que convirtieron a La Barra en hogar de surfistas legendarios.</p>
-				<a href="#whales">Descubre las experiencias</a>
-			</div>
-		</section>
-
-		<!-- News -->
-		<section id="news" class="news-section">
-			<div class="news-container">
-				<div class="news-header">
-					<h2>Historias del Pacífico</h2>
-					<a href="#all-news">Ver todas <span class="gold">→</span></a>
-				</div>
-				<div class="news-grid">
-					<a href="#post" class="news-card" style="color: inherit;">
-						<img src="/uploads/pexels-juan-felipe-ramirez-312591454-18173772.jpg" alt="Ballena jorobada saltando" />
-						<div class="news-meta">
-							<span class="news-tag">BALLENAS</span>
-							<span>12 de agosto</span>
-						</div>
-						<h3>Temporada de ballenas en La Barra</h3>
-						<p>Las ballenas jorobadas llegan a nuestras costas cada julio, trayendo con ellas un espectáculo natural incomparable.</p>
-					</a>
-					<a href="#post" class="news-card" style="color: inherit;">
-						<img src="/uploads/pexels-juan-david-munoz-321167259-13758343.jpg" alt="Música tradicional" />
-						<div class="news-meta">
-							<span class="news-tag">CULTURA</span>
-							<span>8 de agosto</span>
-						</div>
-						<h3>La música del Pacífico en vivo</h3>
-						<p>Cada sábado, disfruta de presentaciones en vivo de música tradicional del Pacífico colombiano en nuestra terraza.</p>
-					</a>
-					<a href="#post" class="news-card" style="color: inherit;">
-						<img src="/uploads/pexels-andi-saiful-sidik-2160410058-36720360.jpg" alt="Artesanías locales" />
-						<div class="news-meta">
-							<span class="news-tag">ARTESANÍA</span>
-							<span>5 de agosto</span>
-						</div>
-						<h3>Artesanías Wounaan en el hostal</h3>
-						<p>Descubre la belleza de las piezas tejidas a mano de comunidades indígenas locales en nuestra tienda.</p>
-					</a>
-				</div>
-			</div>
-		</section>
-
-		<!-- Video Band -->
-		<section id="whales" class="video-band">
-			<img src="/uploads/IMG-20260406-WA0068.jpg" alt="Casa de Tangara Hostel" />
-			<div class="video-content">
-				<button class="play-btn">▶</button>
-				<h2>Descubre la magia del Pacífico</h2>
-				<p>Un recorrido visual por nuestro hostal y los alrededores de La Barra, hogar de ballenas, manglares y una comunidad vibrante.</p>
-			</div>
-		</section>
-
-		<!-- Footer -->
-		<footer id="contact">
-			<div class="footer-container">
-				<div class="footer-grid">
-					<div class="footer-brand">
-						<img src="/uploads/702876787_10165380027888900_2312760133940339429_n.jpg" alt="Logo de Tangara Hostel" class="footer-logo" />
-						<h3>Tangara Hostel</h3>
-						<p>La Barra, Buenaventura<br/>Valle del Cauca, Colombia</p>
-						<a href="#reserve" class="reserve-btn" style="margin-top: 6px;">Reserva</a>
-					</div>
-					<div class="footer-col">
-						<h4>Visita</h4>
-						<a href="#rooms">Habitaciones</a>
-						<a href="#whales">Ballenas</a>
-						<a href="#news">Noticias</a>
-					</div>
-					<div class="footer-col">
-						<h4>Cómo llegar</h4>
-						<a href="#getting">Por tierra</a>
-						<a href="#getting">Por mar</a>
-						<a href="#getting">Desde Juanchaco</a>
-					</div>
-					<div class="footer-col">
-						<h4>Contacto</h4>
-						<a href="tel:+573152395357">+57 315 239 5357</a>
-						<a href="mailto:hola@tangarahostel.co">hola@tangarahostel.co</a>
-						<a href="https://instagram.com/tangarahostel">@tangarahostel</a>
-					</div>
-				</div>
-				<div class="footer-divider">
-					<span>© 2026 Tangara Hostel</span>
-					<span>Registro nacional de turismo</span>
-				</div>
-			</div>
-		</footer>
-	</body>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tangara Hostel · La Barra, Pacífico colombiano — hostal frente a la playa</title>
+    <meta name="description" content="Hostal a 50 metros de la playa de La Barra, Buenaventura. Habitaciones con ventilador y toldillo, internet satelital, café recién hecho. Avistamiento de ballenas de julio a octubre. Desde $50.000 COP por persona.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #F4EFE6;
+            --bg2: #EADFCD;
+            --ink: #1F2A24;
+            --deep: #1F2A24;
+            --accent: #E07A5F;
+            --accentDark: #c86348;
+            --onDeep: #F6F1E8;
+            --muted: #4a5c53;
+            --rule: #d9cebc;
+        }
+        body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+        a { color: inherit; text-decoration: none; }
+        a:hover { color: var(--accent); }
+        img, video { max-width: 100%; display: block; }
+
+        /* Videos Responsivos */
+        .desktop-video { display: block; width: 100%; height: 100%; object-fit: cover; }
+        .mobile-video { display: none; width: 100%; height: 100%; object-fit: cover; }
+        @media (max-width: 768px) {
+            .desktop-video { display: none; }
+            .mobile-video { display: block; }
+        }
+
+        /* Botones y Secciones */
+        .btn-primary {
+            background: var(--accent);
+            color: var(--onDeep);
+            border-radius: 4px;
+            padding: 14px 26px;
+            font-size: 15px;
+            font-weight: 600;
+            display: inline-block;
+            transition: background 0.2s;
+        }
+        .btn-primary:hover {
+            background: var(--accentDark);
+            color: var(--onDeep);
+        }
+    </style>
+</head>
+<body>
+
+  <div style="background: var(--deep); color: rgba(246,241,232,.8); padding: 9px 2rem; display: flex; justify-content: space-between; align-items: center; font-family: ui-monospace, Menlo, monospace; font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase;">
+    <span>Temporada de ballenas · Julio – Octubre</span>
+    <span>La Barra, Pacífico colombiano · 15 min desde Juanchaco</span>
+  </div>
+
+  <header style="position: sticky; top: 0; z-index: 40; background: rgba(244, 239, 230, 0.92); backdrop-filter: blur(14px); border-bottom: 1px solid var(--rule);">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 16px 2rem; display: flex; align-items: center; justify-content: space-between;">
+      <a href="#top" style="display: flex; align-items: center; gap: 11px;">
+        <img src="/uploads/702876787_10165380027888900_2312760133940339429_n.jpg" alt="Logo Tangara Hostel" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover;" />
+        <span style="font-family: 'Lora', Georgia, serif; font-weight: 700; font-size: 20px;">Tangara Hostel</span>
+      </a>
+      <nav style="display: flex; align-items: center; gap: 24px; font-size: 14.5px; font-weight: 500;">
+        <a href="#rooms">Habitaciones</a>
+        <a href="#whales">Ballenas</a>
+        <a href="#playlist">Playlist</a>
+        <a href="#contact">Contacto</a>
+      </nav>
+      <a href="https://wa.me/573152395357?text=Hola,%20quiero%20reservar%20una%20habitaci%C3%B3n%20en%20Tangara%20Hostel" target="_blank" class="btn-primary" style="padding: 10px 18px; font-size: 14px;">Reservar WhatsApp</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="top" style="padding: 24px 2rem;">
+      <div style="position: relative; height: 620px; border-radius: 12px; overflow: hidden; background: var(--deep);">
+        <video class="desktop-video" src="/uploads/TangaraWebHor2.mp4" autoplay muted loop playsinline preload="auto"></video>
+        <video class="mobile-video" src="/uploads/WEBTANGARAVERTICAL.mp4" autoplay muted loop playsinline preload="auto"></video>
+        
+        <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(28,26,23,.85) 0%, rgba(28,26,23,.3) 50%, transparent 80%);"></div>
+        
+        <div style="position: absolute; left: 40px; right: 40px; bottom: 40px; color: var(--onDeep); display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px;">
+          <div style="max-width: 650px;">
+            <span style="font-family: ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: rgba(246,241,232,.7);">La Barra · Pacífico colombiano</span>
+            <h1 style="margin: 10px 0; font-family: 'Lora', Georgia, serif; font-size: 42px; font-weight: 500; line-height: 1.1;">Hostal en la playa de La Barra</h1>
+            <p style="margin: 0 0 20px 0; font-size: 17px; color: rgba(246,241,232,.8);">A cincuenta metros de una playa tranquila. Habitaciones con ventilador, toldillo e internet satelital.</p>
+            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+              <a href="https://wa.me/573152395357?text=Hola,%20quiero%20reservar%20una%20habitaci%C3%B3n" target="_blank" class="btn-primary">Reservar por WhatsApp</a>
+            </div>
+          </div>
+          <div style="text-align: right;">
+            <span style="font-family: 'Lora', Georgia, serif; font-size: 36px; font-weight: 500; display: block;">$50.000</span>
+            <span style="font-family: ui-monospace, Menlo, monospace; font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: rgba(246,241,232,.7);">COP · persona / noche</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="rooms" style="max-width: 1280px; margin: 0 auto; padding: 60px 2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <img src="/uploads/IMG-20260406-WA0063.jpg" alt="Hamacas en la terraza" style="width: 100%; height: 320px; object-fit: cover; border-radius: 4px;" />
+        <span style="font-family: ui-monospace, Menlo, monospace; font-size: 10.5px; letter-spacing: .16em; color: var(--deep);">01 — Alojamiento</span>
+        <h2 style="margin: 0; font-family: 'Lora', Georgia, serif; font-weight: 500; font-size: 28px;">Habitaciones frescas, café al amanecer</h2>
+        <p style="margin: 0; font-size: 16px; line-height: 1.5; color: var(--muted);">Habitaciones con ventilador y toldillo para dormir protegido, termo de café fresco cada mañana e internet satelital de alta velocidad.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <img src="/uploads/IMG-20260420-WA0011.jpg" alt="Entrada al hostal" style="width: 100%; height: 320px; object-fit: cover; border-radius: 4px;" />
+        <span style="font-family: ui-monospace, Menlo, monospace; font-size: 10.5px; letter-spacing: .16em; color: var(--deep);">02 — Entorno</span>
+        <h2 style="margin: 0; font-family: 'Lora', Georgia, serif; font-weight: 500; font-size: 28px;">Ballenas, manglares y surf</h2>
+        <p style="margin: 0; font-size: 16px; line-height: 1.5; color: var(--muted);">Avistamiento de ballenas en temporada, senderos por los esteros, manglares y las mejores olas del Pacífico.</p>
+      </div>
+    </section>
+
+    <section id="playlist" style="background: var(--bg2); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 70px 2rem; text-align: center;">
+      <div style="max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; align-items: center;">
+        <span style="font-family: ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted);">Ambiente Pacífico</span>
+        <h2 style="margin: 0; font-family: 'Lora', Georgia, serif; font-size: 36px; font-weight: 500;">Escucha la música de Tangara</h2>
+        <p style="margin: 0; font-size: 16px; color: var(--muted); line-height: 1.5;">Salsa, currulao y sonidos del litoral para ambientar tu estadía o recordarte el mar.</p>
+        
+        <div style="width: 100%; margin-top: 10px; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact" style="background: var(--deep); color: var(--onDeep); padding: 70px 2rem 40px;">
+    <div style="max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px;">
+      <div style="display: flex; flex-direction: column; gap: 14px; align-items: flex-start;">
+        <img src="/uploads/702876787_10165380027888900_2312760133940339429_n.jpg" alt="Logo Tangara Hostel" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;" />
+        <span style="font-family: 'Lora', Georgia, serif; font-weight: 700; font-size: 22px;">Tangara Hostel</span>
+        <p style="margin: 0; font-size: 15px; color: rgba(246,241,232,.7); line-height: 1.5;">La Barra, Buenaventura<br>Valle del Cauca, Colombia</p>
+        <a href="https://wa.me/573152395357?text=Hola,%20quiero%20información" target="_blank" class="btn-primary" style="margin-top: 10px;">Escríbenos por WhatsApp</a>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font-family: ui-monospace, Menlo, monospace; font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: rgba(246,241,232,.5);">Contacto directo</span>
+        <a href="https://wa.me/573152395357" target="_blank" style="font-size: 15px; color: rgba(246,241,232,.8);">+57 315 239 5357</a>
+        <a href="mailto:hola@tangarahostel.co" style="font-size: 15px; color: rgba(246,241,232,.8);">hola@tangarahostel.co</a>
+        <a href="https://www.instagram.com/tangarahostel" target="_blank" style="font-size: 15px; color: rgba(246,241,232,.8);">@tangarahostel</a>
+      </div>
+    </div>
+    <div style="max-width: 1280px; margin: 0 auto; border-top: 1px solid rgba(246,241,232,.15); padding-top: 20px; display: flex; justify-content: space-between; font-family: ui-monospace, Menlo, monospace; font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: rgba(246,241,232,.5);">
+      <span>© 2026 Tangara Hostel</span><span>Pacífico colombiano</span>
+    </div>
+  </footer>
+
+</body>
 </html>
