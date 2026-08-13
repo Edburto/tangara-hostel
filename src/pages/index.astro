@@ -97,7 +97,7 @@
         .audio-widget-title { font-size: 12.5px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .audio-widget-sub { font-family: ui-monospace, Menlo, monospace; font-size: 9.5px; letter-spacing: .06em; color: rgba(246, 241, 232, 0.7); text-transform: uppercase; }
 
-        /* Menú Fullscreen Móvil Mejorado */
+        /* Menú Fullscreen Móvil */
         .mobile-menu {
             display: none;
             position: fixed;
@@ -150,7 +150,6 @@
         }
     </style>
     <script>
-        // Script para manejar el cierre del menú al hacer clic en enlaces y visibilidad del reproductor
         document.addEventListener('DOMContentLoaded', () => {
             const mobileMenu = document.getElementById('mobileMenu');
             const menuToggleOpen = document.querySelectorAll('.menu-toggle');
@@ -172,10 +171,7 @@
 
             menuToggleOpen.forEach(toggle => toggle.addEventListener('click', openMenu));
             if (menuToggleClose) menuToggleClose.addEventListener('click', closeMenu);
-            
-            menuLinks.forEach(link => {
-                link.addEventListener('click', closeMenu);
-            });
+            menuLinks.forEach(link => link.addEventListener('click', closeMenu));
         });
     </script>
 </head>
@@ -214,4 +210,118 @@
       </div>
 
       <button class="menu-toggle" type="button" aria-label="Abrir menú">
-        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"><line x1="4" y1="8" x2="24
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"><line x1="4" y1="8" x2="24" y2="8"/><line x1="4" y1="14" x2="24" y2="14"/><line x1="4" y1="20" x2="24" y2="20"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="global-audio-widget" aria-label="Reproductor de música flotante">
+    <div style="background: var(--accent); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex: none;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--onDeep)"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+    </div>
+    <div class="audio-widget-info">
+      <span class="audio-widget-title">Festival Petronio Álvarez · Raíz</span>
+      <span class="audio-widget-sub">Marimba, chonta y río</span>
+    </div>
+    <a href="#playlist" style="font-size: 11px; font-weight: 600; background: rgba(246,241,232,0.15); padding: 5px 10px; border-radius: 12px; white-space: nowrap; margin-left: auto;">Ver playlist</a>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+      <span style="font-family: 'Lora', Georgia, serif; font-weight: 700; font-size: 21px; color: var(--onDeep);">Tangara Hostel</span>
+      <button class="menu-toggle" type="button" aria-label="Cerrar menú" style="display: flex;">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="var(--onDeep)" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="22" y2="22"/><line x1="22" y1="6" x2="6" y2="22"/></svg>
+      </button>
+    </div>
+    
+    <nav>
+      <a href="#rooms">Habitaciones</a>
+      <a href="#whales">Ballenas</a>
+      <a href="#getting-here">Cómo llegar</a>
+      <a href="#news">Noticias</a>
+      <a href="#playlist">Playlist</a>
+    </nav>
+
+    <div class="mobile-menu-footer">
+      <div style="display: flex; gap: 16px; justify-content: center; font-size: 14px; font-weight: 500;">
+        <a href="#es" class="active" style="color: var(--onDeep);">🇪🇸 Español</a>
+        <span style="color: rgba(246,241,232,0.3);">/</span>
+        <a href="#en" style="color: rgba(246,241,232,0.6);">🇬🇧 English</a>
+        <span style="color: rgba(246,241,232,0.3);">/</span>
+        <a href="#fr" style="color: rgba(246,241,232,0.6);">🇫🇷 Français</a>
+      </div>
+      <a href="https://wa.me/573152395357?text=Hola,%20quiero%20reservar%20una%20habitaci%C3%B3n" target="_blank" class="btn-primary" style="text-align: center; padding: 14px; font-size: 16px;">Reservar por WhatsApp</a>
+    </div>
+  </div>
+
+  <div class="mobile-whatsapp-bar">
+    <a href="https://wa.me/573152395357?text=Hola,%20quiero%20reservar%20una%20habitaci%C3%B3n" target="_blank" class="btn-primary" style="padding: 12px 18px; font-size: 14.5px;">Reservar por WhatsApp</a>
+  </div>
+
+  <main>
+    <section id="top" style="width: 100%;">
+      <div style="position: relative; width: 100%; height: 85vh; min-height: 600px; overflow: hidden; background: var(--deep);">
+        <video class="desktop-video" src="/uploads/TangaraWebHor2.mp4" autoplay muted loop playsinline preload="auto" poster="/uploads/IMG-20260420-WA0009.jpg"></video>
+        <video class="mobile-video" src="/uploads/WEBTANGARAVERTICAL.mp4" autoplay muted loop playsinline preload="auto" poster="/uploads/IMG-20260420-WA0009.jpg"></video>
+
+        <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(28,26,23,.82) 0%, rgba(28,26,23,.3) 45%, transparent 75%);"></div>
+
+        <div style="position: absolute; left: 40px; right: 40px; bottom: 50px; display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; z-index: 2; max-width: 1280px; margin: 0 auto; width: calc(100% - 80px);">
+          <div class="hero-content" style="display: flex; flex-direction: column; gap: 16px; align-items: flex-start; max-width: 760px;">
+            <span style="font-family: ui-monospace, Menlo, monospace; font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: rgba(246,241,232,.7);">La Barra · Pacífico colombiano</span>
+            <h1 style="margin: 0; display: flex; flex-direction: column; gap: 10px; font-family: 'Lora', Georgia, serif; font-weight: 500; color: var(--onDeep);">
+              <span style="font-size: 50px; line-height: 1.05;">Hostal en la playa de La Barra, Pacífico Colombiano</span>
+              <span style="font-size: 26px; line-height: 1.2; font-weight: 400; color: rgba(246,241,232,.82);">Tangara, en la costa de las ballenas</span>
+            </h1>
+            <p style="margin: 0; max-width: 500px; font-size: 16px; line-height: 1.5; color: rgba(246,241,232,.78);">A cincuenta metros de una playa tranquila y segura del Pacífico colombiano — ventiladores, toldillos, internet satelital y café recién hecho cada mañana.</p>
+            <div style="display: flex; gap: 16px; margin-top: 6px;">
+              <a href="https://wa.me/573152395357?text=Hola,%20quiero%20reservar%20una%20habitaci%C3%B3n" target="_blank" class="btn-primary" style="padding: 14px 26px; font-size: 15px;">Reserva por WhatsApp</a>
+            </div>
+          </div>
+          <div style="text-align: right; color: rgba(246,241,232,.8); display: flex; flex-direction: column; gap: 4px; flex: none;">
+            <span style="font-family: 'Lora', Georgia, serif; font-size: 32px; font-weight: 500; color: var(--onDeep);">$60.000</span>
+            <span style="font-family: ui-monospace, Menlo, monospace; font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase;">COP · persona / noche</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="rooms" style="max-width: 1280px; margin: 0 auto; padding: 96px 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 56px;">
+      <div style="display: flex; flex-direction: column; gap: 18px;">
+        <img src="/uploads/IMG-20260406-WA0063.jpg" alt="Hamacas en la terraza" style="width: 100%; height: 340px; object-fit: cover; border-radius: 3px;" />
+        <span style="font-family: ui-monospace, Menlo, monospace; font-size: 10.5px; letter-spacing: .16em; color: var(--deep);">01 — Alojamiento</span>
+        <h2 style="margin: 0; font-family: 'Lora', Georgia, serif; font-weight: 500; font-size: 38px;">Habitaciones frescas, café al amanecer</h2>
+        <p style="margin: 0; max-width: 520px; font-size: 16.5px; line-height: 1.55; color: var(--muted);">Habitaciones con ventilador y toldillo para dormir bien protegido, y un termo de café recién hecho cada mañana. Internet satelital de alta velocidad y energía en toda la casa.</p>
+        <a href="https://wa.me/573152395357?text=Hola,%20quiero%20reservar%20una%20cama%20por%20$60.000%20COP" target="_blank" class="maps-link" style="align-self: flex-start; margin-top: 4px;">Reservar esta habitación →</a>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 18px;" id="whales">
+        <img src="/uploads/IMG-20260420-WA0011.jpg" alt="Entrada al hostal" style="width: 100%; height: 340px; object-fit: cover; border-radius: 3px;" />
+        <span style="font-family: ui-monospace, Menlo, monospace; font-size: 10.5px; letter-spacing: .16em; color: var(--deep);">02 — Salir</span>
+        <h2 style="margin: 0; font-family: 'Lora', Georgia, serif; font-weight: 500; font-size: 38px;">Ballenas, manglares y surf</h2>
+        <p style="margin: 0; max-width: 520px; font-size: 16.5px; line-height: 1.55; color: var(--muted);">Avistamiento de ballenas y de aves en temporada, senderos ecológicos por los esteros, pesca de pargo en el manglar y las olas que hicieron de La Barra un punto clave del surf.</p>
+        <a href="https://wa.me/573152395357?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20el%20avistamiento%20de%20ballenas" target="_blank" class="maps-link" style="align-self: flex-start; margin-top: 4px;">Preguntar por ballenas →</a>
+      </div>
+    </section>
+
+    <section id="getting-here" style="background: var(--bg2); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 80px 40px;">
+      <div style="max-width: 1280px; margin: 0 auto;">
+        <span style="font-family: ui-monospace, Menlo, monospace; font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--deep); display: block; margin-bottom: 12px;">Guía de viaje y ubicación</span>
+        <h2 style="margin: 0 0 40px 0; font-family: 'Lora', Georgia, serif; font-weight: 500; font-size: 38px;">Cómo llegar a Tangara Hostel</h2>
+
+        <div class="map-card">
+          <div style="position: relative; width: 100%; border-radius: 6px; overflow: hidden;">
+            <img src="/uploads/mapa-ruta-base.png" alt="Mapa base de Bahía Málaga y Bahía de Buenaventura" style="width: 100%; display: block;" />
+            <svg style="position: absolute; inset: 0; width: 100%; height: 100%;" viewBox="0 0 1244 809" role="img" aria-label="Mapa de ruta desde Buenaventura hasta La Barra">
+              <title>Ruta Buenaventura → Bahía Málaga → La Barra</title>
+              <defs>
+                <marker id="boatArrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+                  <path d="M1 1L9 5L1 9" fill="none" stroke="#C0392B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </marker>
+              </defs>
+
+              <text x="500" y="45" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="14" letter-spacing=".5" fill="#3F6B4C" font-weight="700">PARQUE NACIONAL NATURAL URAMBA</text>
+              <text x="150" y="730" font-family="ui-monospace, Menlo, monospace" font-size="15" letter-spacing="1" fill="#4B7B90" opacity="0.85">OCÉANO PACÍFICO</text>
+              <text x="620" y="255" text-anchor="middle" font-family="Lora, Georgia, serif" font-size="19" font-style="italic" fill="#3F6B4C" opacity="0.9">Bahía Málaga</text>
+              <text x="950" y="465" text-anchor="middle" font-family="Lora, Georgia, serif" font-size="16" font-style="italic" fill="#6B5D3A" opacity="0.9">Bahía de Buenaventura</text>
+
+              <path id="boatRoute" d="M985,573 C963,607 942,636 920,656 C899,669 877,682 856,694 C834,704 813,710 791,713 C770,715 748,717 727,718 C705,719 684,720 662,720 C641,720 619,719 598,717 C576,709 555,698 533,672 C5
