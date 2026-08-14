@@ -6,7 +6,7 @@
 <html lang="es">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Tangara Hostel · La Barra, Pacífico colombiano</title>
     <meta name="description" content="Hostal a 50 metros de la playa de La Barra, Buenaventura. Habitaciones con ventilador y toldillo, internet satelital, café recién hecho.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -117,6 +117,9 @@
 
         .desktop-actions { display: flex; align-items: center; gap: 12px; }
 
+        .svg-link-node { cursor: pointer; transition: transform 0.2s ease; }
+        .svg-link-node:hover { transform: scale(1.05); transform-origin: center; }
+
         @media (max-width: 1024px) {
             .header-inner { padding: 14px 24px; }
             .desktop-nav, .desktop-actions { display: none !important; }
@@ -186,7 +189,7 @@
                     step3Title: "¡Llegaste a Tangara!",
                     step3Desc: "Preguntas por Tangara Hostel a 50 metros de la playa. Te recibimos con café recién hecho.",
                     formTag: "¿Dudas o reservas?",
-                    formTitle: "🦜 Contáctanos y Reserva",
+                    formTitle: "Contáctanos y Reserva",
                     formDesc: "Escríbenos tus fechas, cuántas personas viajan o cualquier consulta. Al enviar, te conectaremos de inmediato con nuestro WhatsApp.",
                     labelName: "Tu Nombre",
                     labelDetails: "Fechas estimadas y número de personas",
@@ -279,6 +282,8 @@
                 const dict = translations[lang];
                 if (!dict) return;
 
+                document.documentElement.lang = lang;
+
                 // Actualizar textos con data-i18n
                 document.querySelectorAll('[data-i18n]').forEach(element => {
                     const key = element.getAttribute('data-i18n');
@@ -310,7 +315,7 @@
   <header style="position: sticky; top: 0; z-index: 40; background: rgba(244, 239, 230, 0.93); backdrop-filter: blur(14px); border-bottom: 1px solid var(--rule);">
     <div class="header-inner" style="max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px;">
       <a href="#top" style="display: flex; align-items: center; gap: 11px; flex: none;">
-        <img src="/uploads/logo-tangara.png" alt="Tangara Hostel Logo" style="height: 36px; width: auto; object-fit: contain;" />
+        <img src="/uploads/logo-tangara.png" alt="Tangara Hostel Logo" style="height: 48px; width: auto; object-fit: contain;" />
         <span style="font-family: 'Lora', Georgia, serif; font-weight: 700; font-size: 20px; letter-spacing: -.012em;">Tangara Hostel</span>
       </a>
       
@@ -323,15 +328,15 @@
 
       <div class="desktop-actions">
         <div class="lang-switch">
-          <button type="button" class="lang-btn active" data-lang="es" onclick="changeLanguage('es')">🇪🇸 ES</button>
+          <button type="button" class="lang-btn active" data-lang="es" aria-label="Cambiar idioma a Español" onclick="changeLanguage('es')">🇪🇸 ES</button>
           <span style="opacity: 0.3;">/</span>
-          <button type="button" class="lang-btn" data-lang="en" onclick="changeLanguage('en')">🇬🇧 EN</button>
+          <button type="button" class="lang-btn" data-lang="en" aria-label="Switch language to English" onclick="changeLanguage('en')">🇬🇧 EN</button>
           <span style="opacity: 0.3;">/</span>
-          <button type="button" class="lang-btn" data-lang="fr" onclick="changeLanguage('fr')">🇫🇷 FR</button>
+          <button type="button" class="lang-btn" data-lang="fr" aria-label="Changer de langue en Français" onclick="changeLanguage('fr')">🇫🇷 FR</button>
         </div>
         
-        <a href="https://maps.google.com/?q=La+Barra+Buenaventura+Colombia" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 6px; font-size: 13.5px; font-weight: 600; color: var(--onDeep); background: var(--deep); border-radius: 20px; padding: 9px 16px;">
-           <span style="font-size: 16px;">🦜</span> Google Maps
+        <a href="https://maps.google.com/?cid=12604620023476085208" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 600; color: var(--onDeep); background: var(--deep); border-radius: 20px; padding: 9px 16px;">
+           <img src="/uploads/logo-tangara.png" alt="" style="height: 18px; width: auto; filter: brightness(0) invert(1);" /> Google Maps
         </a>
 
         <a href="https://wa.me/573152395357?text=Hola,%20quiero%20reservar%20una%20habitaci%C3%B3n" target="_blank" class="btn-primary" style="padding: 9px 16px; font-size: 13.5px; white-space: nowrap;" data-i18n="btnBook">Reservar WhatsApp</a>
@@ -453,39 +458,34 @@
 
               <g class="route-point" tabindex="0">
                 <circle class="dot" cx="985" cy="573" r="9" fill="#C0392B" stroke="#F6F1E8" stroke-width="2"/>
-                <text x="985" y="547" text-anchor="middle" font-family="Lora, Georgia, serif" font-size="19" font-weight="600" fill="#1F2A24">Buenaventura</text>
+                <text x="985" y="547" text-anchor="middle" font-family="Lora, Georgia, serif" font-size="16" font-weight="700" fill="#1F2A24">Buenaventura</text>
               </g>
 
               <g class="route-point" tabindex="0">
-                <circle class="dot" cx="422" cy="476" r="7" fill="#2255A4" stroke="#F6F1E8" stroke-width="2"/>
-                <text x="422" y="504" text-anchor="middle" font-family="Lora, Georgia, serif" font-size="18" font-weight="600" fill="#1F2A24">Juanchaco</text>
+                <circle class="dot" cx="422" cy="476" r="8" fill="#2255A4" stroke="#F6F1E8" stroke-width="2"/>
+                <text x="442" y="472" font-family="Lora, Georgia, serif" font-size="15" font-weight="700" fill="#1F2A24">Juanchaco</text>
               </g>
 
-              <g class="route-point" tabindex="0">
-                <circle class="dot" cx="373" cy="444" r="10" fill="#C0392B" stroke="#F6F1E8" stroke-width="2"/>
-                <circle cx="373" cy="444" r="17" fill="none" stroke="#C0392B" stroke-width="1.2" opacity="0.4">
-                  <animate attributeName="r" values="10;22;10" dur="2.4s" repeatCount="indefinite"/>
-                  <animate attributeName="opacity" values="0.5;0;0.5" dur="2.4s" repeatCount="indefinite"/>
-                </circle>
-                <text x="373" y="414" text-anchor="middle" font-family="Lora, Georgia, serif" font-size="19" font-weight="700" fill="#C0392B">Tangara Hostel</text>
-              </g>
+              <a href="https://maps.google.com/?cid=12604620023476085208" target="_blank" rel="noopener noreferrer" class="svg-link-node">
+                <g class="route-point" tabindex="0">
+                  <circle class="dot" cx="375" cy="438" r="10" fill="#E07A5F" stroke="#F6F1E8" stroke-width="2"/>
+                  <text x="350" y="420" font-family="Lora, Georgia, serif" font-size="17" font-weight="700" fill="#2F5D50">Tangara Hostel · La Barra 📍</text>
+                </g>
+              </a>
             </svg>
           </div>
-
-          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-top: 16px;">
-            <p style="font-size: 12.5px; color: var(--muted); margin: 0; font-family: ui-monospace, Menlo, monospace; letter-spacing: .04em;">Ruta paso a paso hacia el hostal</p>
-            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-              <a href="https://maps.app.goo.gl/TU_ENLACE_REAL_AQUI" target="_blank" rel="noopener noreferrer" class="maps-link" style="background: var(--deep); color: #F6F1E8; border-color: var(--deep);">
-                🦜 Google Maps
-              </a>
-            </div>
+          
+          <div style="margin-top: 18px; text-align: center;">
+            <a href="https://maps.google.com/?cid=12604620023476085208" target="_blank" rel="noopener noreferrer" class="maps-link" style="background: var(--deep); color: var(--onDeep); border: none; padding: 10px 22px;">
+              <img src="/uploads/logo-tangara.png" alt="" style="height: 18px; width: auto; filter: brightness(0) invert(1);" /> Abrir ubicación exacta de Tangara Hostel en Google Maps
+            </a>
           </div>
         </div>
 
         <div class="steps">
           <div class="step-card">
             <div class="step-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F6F1E8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17h18M4 17l1-6h14l1 6M6 11V8a2 2 0 012-2h8a2 2 0 012 2v3M9 17v2M15 17v2"/></svg>
+              <span style="color: var(--onDeep); font-size: 18px;">🛥️</span>
             </div>
             <div>
               <p class="step-meta" data-i18n="step1Meta">Etapa 1 · 45 min</p>
@@ -493,9 +493,10 @@
               <p class="step-desc" data-i18n="step1Desc">Desde el muelle turístico de Buenaventura, lancha rápida y cubierta hasta Juanchaco.</p>
             </div>
           </div>
+
           <div class="step-card">
             <div class="step-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F6F1E8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/><path d="M5 18h-1v-5l2-5h9l3 5h1v5h-1M9 8v5M16 13V8"/></svg>
+              <span style="color: var(--onDeep); font-size: 18px;">🛺</span>
             </div>
             <div>
               <p class="step-meta" data-i18n="step2Meta">Etapa 2 · 10 min</p>
@@ -503,9 +504,10 @@
               <p class="step-desc" data-i18n="step2Desc">Al llegar a Juanchaco, un tuk-tuk local atraviesa la trocha o la playa hasta Tangara.</p>
             </div>
           </div>
+
           <div class="step-card">
             <div class="step-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F6F1E8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.5-7-11a7 7 0 0114 0c0 4.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+              <span style="color: var(--onDeep); font-size: 18px;">🦜</span>
             </div>
             <div>
               <p class="step-meta" data-i18n="step3Meta">Llegada</p>
@@ -514,96 +516,88 @@
             </div>
           </div>
         </div>
+
       </div>
     </section>
 
-    <section id="contact-form-section" style="background: #1F2A24; color: #F6F1E8; padding: 80px 40px; text-align: center; border-top: 2px solid var(--gold);">
-      <div style="max-width: 650px; margin: 0 auto;">
-        <span style="font-family: ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--gold);" data-i18n="formTag">¿Dudas o reservas?</span>
-        
-        <h2 style="margin: 15px 0 20px 0; font-family: 'Lora', Georgia, serif; font-weight: 500; font-size: 44px; color: var(--onDeep); display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap;">
-          <img src="/uploads/logo-tangara.png" alt="Tangara Hostel Logo" style="height: 48px; width: auto; object-fit: contain; vertical-align: middle;" />
-          <span data-i18n="formTitle">Contáctanos y Reserva</span>
-        </h2>
-        
-        <p style="margin: 0 0 40px 0; font-size: 16.5px; line-height: 1.55; color: rgba(246,241,232,0.88);" data-i18n="formDesc">
-          Escríbenos tus fechas, cuántas personas viajan o cualquier consulta. Al enviar, te conectaremos de inmediato con nuestro WhatsApp para confirmar tu estadía en La Barra.
-        </p>
+    <section id="contact-form-section" style="padding: 96px 40px; max-width: 800px; margin: 0 auto; text-align: center;">
+      <span style="font-family: ui-monospace, Menlo, monospace; font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--deep);" data-i18n="formTag">¿Dudas o reservas?</span>
+      
+      <h2 style="margin: 15px 0 20px 0; font-family: 'Lora', Georgia, serif; font-weight: 500; font-size: 44px; color: var(--ink); display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap;">
+        <img src="/uploads/logo-tangara.png" alt="Tangara Hostel Logo" style="height: 48px; width: auto; object-fit: contain; vertical-align: middle;" />
+        <span data-i18n="formTitle">Contáctanos y Reserva</span>
+      </h2>
+      
+      <p style="margin: 0 auto 40px auto; font-size: 16.5px; line-height: 1.6; color: var(--muted); max-width: 580px;" data-i18n="formDesc">
+        Escríbenos tus fechas, cuántas personas viajan o cualquier consulta. Al enviar, te conectaremos de inmediato con nuestro WhatsApp.
+      </p>
 
-        <form id="whatsappForm" style="display: flex; flex-direction: column; gap: 20px; align-items: center;">
-          <div style="width: 100%; text-align: left;">
-            <label for="clientName" style="display: block; font-size: 12px; font-weight: 600; text-transform: uppercase; color: rgba(246,241,232,0.7); margin-bottom: 6px;" data-i18n="labelName">Tu Nombre</label>
-            <input type="text" id="clientName" required placeholder="Ej. Ana María" style="width: 100%; padding: 12px; border: 1px solid rgba(246,241,232,0.2); background: rgba(246,241,232,0.05); color: #F6F1E8; border-radius: 4px; font-family: inherit; font-size: 15px;">
-          </div>
+      <form onsubmit="event.preventDefault(); const name=document.getElementById('cName').value; const details=document.getElementById('cDetails').value; const msg=document.getElementById('cMsg').value; const text=`Hola, soy ${name}.%0A%0A*Detalles:* ${details}%0A*Mensaje:* ${msg}`; window.open(`https://wa.me/573152395357?text=${text}`, '_blank');" style="display: flex; flex-direction: column; gap: 20px; text-align: left; background: var(--bg2); padding: 32px; border-radius: 8px; border: 1px solid var(--rule);">
+        <div>
+          <label for="cName" style="display: block; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px;" data-i18n="labelName">Tu Nombre</label>
+          <input type="text" id="cName" required style="width: 100%; padding: 12px 16px; border: 1px solid var(--rule); border-radius: 4px; font-family: inherit; font-size: 15px; background: var(--bg);" placeholder="Ej: María Gómez" />
+        </div>
 
-          <div style="width: 100%; text-align: left;">
-            <label for="clientDetails" style="display: block; font-size: 12px; font-weight: 600; text-transform: uppercase; color: rgba(246,241,232,0.7); margin-bottom: 6px;" data-i18n="labelDetails">Fechas estimadas y número de personas</label>
-            <input type="text" id="clientDetails" required placeholder="Ej. 2 personas, del 15 al 18 de agosto" style="width: 100%; padding: 12px; border: 1px solid rgba(246,241,232,0.2); background: rgba(246,241,232,0.05); color: #F6F1E8; border-radius: 4px; font-family: inherit; font-size: 15px;">
-          </div>
+        <div>
+          <label for="cDetails" style="display: block; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px;" data-i18n="labelDetails">Fechas estimadas y número de personas</label>
+          <input type="text" id="cDetails" required style="width: 100%; padding: 12px 16px; border: 1px solid var(--rule); border-radius: 4px; font-family: inherit; font-size: 15px; background: var(--bg);" placeholder="Ej: 15 al 18 de agosto, 2 personas" />
+        </div>
 
-          <div style="width: 100%; text-align: left;">
-            <label for="clientMessage" style="display: block; font-size: 12px; font-weight: 600; text-transform: uppercase; color: rgba(246,241,232,0.7); margin-bottom: 6px;" data-i18n="labelMsg">Mensaje o consulta adicional</label>
-            <textarea id="clientMessage" rows="4" placeholder="¿Tienes alguna duda sobre cómo llegar o alimentación?" style="width: 100%; padding: 12px; border: 1px solid rgba(246,241,232,0.2); background: rgba(246,241,232,0.05); color: #F6F1E8; border-radius: 4px; font-family: inherit; font-size: 15px; resize: vertical;"></textarea>
-          </div>
+        <div>
+          <label for="cMsg" style="display: block; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px;" data-i18n="labelMsg">Mensaje o consulta adicional</label>
+          <textarea id="cMsg" rows="4" style="width: 100%; padding: 12px 16px; border: 1px solid var(--rule); border-radius: 4px; font-family: inherit; font-size: 15px; background: var(--bg); resize: vertical;" placeholder="¿Cómo llego desde Cali? / ¿Tienen tours de ballenas?"></textarea>
+        </div>
 
-          <button type="submit" class="btn-primary" style="margin-top: 10px; padding: 14px 32px; font-size: 16px; width: 100%; max-width: 320px; display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer; border: none;" data-i18n="btnSubmit">
-            Enviar por WhatsApp 🦜
-          </button>
-        </form>
-      </div>
+        <button type="submit" class="btn-primary" style="padding: 16px; font-size: 16px; cursor: pointer; border: none; margin-top: 10px;" data-i18n="btnSubmit">
+          Enviar por WhatsApp 🦜
+        </button>
+      </form>
     </section>
-
-    <script>
-        document.getElementById('whatsappForm')?.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const nombre = document.getElementById('clientName').value;
-            const detalles = document.getElementById('clientDetails').value;
-            const mensajeExtra = document.getElementById('clientMessage').value;
-
-            const textoFinal = `Hola Tangara Hostel 🦜,%0A%0AMi nombre es *${encodeURIComponent(nombre)}*.%0A*Detalles:* ${encodeURIComponent(detalles)}%0A*Mensaje:* ${encodeURIComponent(mensajeExtra)}`;
-            
-            const numeroWhatsApp = "573152395357";
-            window.open(`https://wa.me/${numeroWhatsApp}?text=${textoFinal}`, '_blank');
-        });
-    </script>
   </main>
 
-  <footer style="background: var(--deep); color: var(--onDeep); padding: 60px 40px 30px;">
+  <footer style="background: var(--ink); color: var(--onDeep); padding: 60px 40px 30px; border-top: 1px solid rgba(246,241,232,0.1);">
     <div style="max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px;">
       <div>
-        <h3 style="font-family: 'Lora', Georgia, serif; font-size: 22px; margin: 0 0 12px; display: flex; align-items: center; gap: 8px;">
-          <span role="img" aria-label="Tangara">🦜</span> Tangara Hostel
-        </h3>
-        <p style="color: rgba(246,241,232,0.7); font-size: 14px; line-height: 1.5; max-width: 380px; margin: 0 0 20px;">Un espacio rústico y acogedor a pocos pasos del mar en La Barra, Buenaventura. El punto de partida perfecto para ballenas, manglares y descanso.</p>
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+          <img src="/uploads/logo-tangara.png" alt="Tangara Hostel Logo" style="height: 38px; width: auto; object-fit: contain;" />
+          <span style="font-family: 'Lora', Georgia, serif; font-size: 22px; font-weight: 700;">Tangara Hostel</span>
+        </div>
+        <p style="margin: 0 0 16px 0; opacity: 0.75; font-size: 14.5px; max-width: 360px; line-height: 1.5;">
+          Alojamiento a 50 metros de la playa en La Barra, Pacífico colombiano. Tranquilidad, naturaleza, café fresco e internet satelital.
+        </p>
         <div class="social-icons-footer">
-          <a href="https://instagram.com" target="_blank" class="social-icon-btn" aria-label="Instagram">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          <a href="https://instagram.com" target="_blank" aria-label="Instagram" class="social-icon-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
           </a>
-          <a href="https://facebook.com" target="_blank" class="social-icon-btn" aria-label="Facebook">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3.8l.2-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          <a href="https://facebook.com" target="_blank" aria-label="Facebook" class="social-icon-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
           </a>
         </div>
       </div>
+
       <div>
-        <h4 style="font-size: 14px; text-transform: uppercase; letter-spacing: .1em; margin: 0 0 16px; color: var(--gold);">Navegación</h4>
-        <div style="display: flex; flex-direction: column; gap: 10px; font-size: 14px;">
-          <a href="#rooms" style="color: rgba(246,241,232,0.8);" data-i18n="navRooms">Habitaciones</a>
-          <a href="#whales" style="color: rgba(246,241,232,0.8);" data-i18n="navWhales">Ballenas</a>
-          <a href="#getting-here" style="color: rgba(246,241,232,0.8);" data-i18n="navGettingHere">Cómo llegar</a>
-          <a href="#contact-form-section" style="color: rgba(246,241,232,0.8);" data-i18n="navContact">Contacto</a>
-        </div>
+        <h4 style="font-family: ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin: 0 0 16px 0;">Navegación</h4>
+        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 14px; opacity: 0.85;">
+          <li><a href="#rooms" data-i18n="navRooms">Habitaciones</a></li>
+          <li><a href="#whales" data-i18n="navWhales">Ballenas</a></li>
+          <li><a href="#getting-here" data-i18n="navGettingHere">Cómo llegar</a></li>
+          <li><a href="#contact-form-section" data-i18n="navContact">Contacto</a></li>
+        </ul>
       </div>
+
       <div>
-        <h4 style="font-size: 14px; text-transform: uppercase; letter-spacing: .1em; margin: 0 0 16px; color: var(--gold);">Contacto</h4>
-        <p style="color: rgba(246,241,232,0.8); font-size: 14px; line-height: 1.6; margin: 0;">
-          La Barra, Buenaventura<br>
-          Valle del Cauca, Colombia<br>
-          WhatsApp: +57 315 239 5357
+        <h4 style="font-family: ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin: 0 0 16px 0;">Contacto</h4>
+        <p style="margin: 0; font-size: 14px; opacity: 0.85; line-height: 1.6;">
+          La Barra, Buenaventura<br />
+          Valle del Cauca, Colombia<br />
+          <a href="https://wa.me/573152395357" style="color: var(--accent); font-weight: 600;">+57 315 239 5357</a>
         </p>
       </div>
     </div>
-    <div style="max-width: 1280px; margin: 0 auto; border-top: 1px solid rgba(246,241,232,0.15); padding-top: 20px; text-align: center; font-size: 12.5px; color: rgba(246,241,232,0.5);">
-      © 2026 Tangara Hostel. Todos los derechos reservados.
+
+    <div style="max-width: 1280px; margin: 0 auto; padding-top: 24px; border-top: 1px solid rgba(246,241,232,0.08); display: flex; justify-content: space-between; align-items: center; font-size: 12px; opacity: 0.6; flex-wrap: wrap; gap: 12px;">
+      <span>© Tangara Hostel. Todos los derechos reservados.</span>
+      <span>La Barra, Pacífico colombiano</span>
     </div>
   </footer>
 
