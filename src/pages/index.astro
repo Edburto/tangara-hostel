@@ -11,7 +11,7 @@
     <meta name="description" content="Hostal a 50 metros de la playa de La Barra, Buenaventura. Habitaciones con ventilador y toldillo, internet satelital, café recién hecho.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -42,15 +42,44 @@
         .btn-primary {
             background: var(--accent);
             color: var(--onDeep);
-            border-radius: 3px;
+            border-radius: 4px;
             padding: 14px 26px;
             font-size: 15px;
             font-weight: 600;
-            display: inline-block;
-            transition: background 0.2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: background 0.2s, transform 0.2s;
             text-align: center;
         }
-        .btn-primary:hover { background: var(--accentDark); color: var(--onDeep); }
+        .btn-primary:hover { background: var(--accentDark); color: var(--onDeep); transform: translateY(-1px); }
+
+        .price-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(31, 42, 36, 0.75);
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--gold);
+            border-radius: 30px;
+            padding: 6px 16px;
+            color: var(--onDeep);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .price-badge .amount {
+            font-family: 'Lora', Georgia, serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--gold);
+        }
+        .price-badge .label {
+            font-family: ui-monospace, Menlo, monospace;
+            font-size: 10px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            opacity: 0.9;
+        }
 
         .lang-switch {
             display: flex;
@@ -126,7 +155,20 @@
             .menu-toggle { display: flex !important; }
             #rooms { grid-template-columns: 1fr !important; padding: 60px 24px !important; gap: 40px !important; }
             footer > div:first-child { grid-template-columns: 1fr !important; gap: 32px !important; }
-            .mobile-whatsapp-bar { display: flex; position: fixed; bottom: 0; left: 0; right: 0; z-index: 80; background: var(--bg); border-top: 1px solid var(--rule); padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); }
+            .mobile-whatsapp-bar { 
+                display: flex; 
+                align-items: center;
+                justify-content: space-between;
+                position: fixed; 
+                bottom: 0; 
+                left: 0; 
+                right: 0; 
+                z-index: 80; 
+                background: var(--deep); 
+                border-top: 1px solid rgba(201, 162, 75, 0.4); 
+                padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); 
+                box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+            }
             body { padding-bottom: 68px; }
         }
 
@@ -284,22 +326,18 @@
 
                 document.documentElement.lang = lang;
 
-                // Actualizar textos con data-i18n
                 document.querySelectorAll('[data-i18n]').forEach(element => {
                     const key = element.getAttribute('data-i18n');
                     if (dict[key]) element.textContent = dict[key];
                 });
 
-                // Cambiar estado activo en los botones
                 document.querySelectorAll('.lang-btn').forEach(btn => {
                     btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
                 });
 
-                // Guardar preferencia
                 localStorage.setItem('tangara_lang', lang);
             };
 
-            // Cargar idioma previo si existe
             const savedLang = localStorage.getItem('tangara_lang') || 'es';
             if (savedLang !== 'es') window.changeLanguage(savedLang);
         });
@@ -335,7 +373,7 @@
           <button type="button" class="lang-btn" data-lang="fr" aria-label="Changer de langue en Français" onclick="changeLanguage('fr')">🇫🇷 FR</button>
         </div>
         
-        <a href="https://maps.google.com/?cid=12604620023476085208" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 600; color: var(--onDeep); background: var(--deep); border-radius: 20px; padding: 9px 16px;">
+        <a href="https://maps.app.goo.gl/8sCjoDaZDSKUP9PJA" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 600; color: var(--onDeep); background: var(--deep); border-radius: 20px; padding: 9px 16px;">
            <img src="/uploads/logo-tangara.png" alt="" style="height: 18px; width: auto; filter: brightness(0) invert(1);" /> Google Maps
         </a>
 
@@ -379,7 +417,11 @@
   </div>
 
   <div class="mobile-whatsapp-bar">
-    <a href="https://wa.me/573152395357?text=Hola,%20quiero%20reservar%20una%20habitaci%C3%B3n" target="_blank" class="btn-primary" style="padding: 12px 18px; font-size: 14.5px; width: 100%;" data-i18n="btnBook">Reservar por WhatsApp</a>
+    <div style="display: flex; flex-direction: column; gap: 1px;">
+      <span style="font-family: 'Lora', Georgia, serif; font-size: 18px; font-weight: 700; color: var(--gold); line-height: 1;">$60.000</span>
+      <span style="font-family: ui-monospace, Menlo, monospace; font-size: 9px; letter-spacing: .08em; text-transform: uppercase; color: var(--onDeep); opacity: 0.8;" data-i18n="priceUnit">COP / noche</span>
+    </div>
+    <a href="https://wa.me/573152395357?text=Hola,%20quiero%20reservar%20una%20habitaci%C3%B3n" target="_blank" class="btn-primary" style="padding: 10px 18px; font-size: 13.5px;" data-i18n="btnBook">Reservar por WhatsApp</a>
   </div>
 
   <main>
@@ -398,13 +440,15 @@
               <span style="font-size: clamp(18px, 3vw, 26px); line-height: 1.2; font-weight: 400; color: rgba(246,241,232,.82);" data-i18n="heroSubtitle">Tangara, en la costa de las ballenas</span>
             </h1>
             <p style="margin: 0; max-width: 500px; font-size: 16px; line-height: 1.5; color: rgba(246,241,232,.78);" data-i18n="heroDesc">A cincuenta metros de una playa tranquila y segura del Pacífico colombiano — ventiladores, toldillos, internet satelital y café recién hecho cada mañana.</p>
-            <div style="display: flex; gap: 16px; margin-top: 6px;">
+            
+            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: 6px;">
               <a href="https://wa.me/573152395357?text=Hola,%20quiero%20reservar%20una%20habitaci%C3%B3n" target="_blank" class="btn-primary" style="padding: 14px 26px; font-size: 15px;" data-i18n="btnBook">Reserva por WhatsApp</a>
+              
+              <div class="price-badge">
+                <span class="amount">$60.000</span>
+                <span class="label" data-i18n="priceUnit">COP · persona / noche</span>
+              </div>
             </div>
-          </div>
-          <div style="text-align: right; color: rgba(246,241,232,.8); display: flex; flex-direction: column; gap: 4px; flex: none;" class="desktop-actions">
-            <span style="font-family: 'Lora', Georgia, serif; font-size: 32px; font-weight: 500; color: var(--onDeep);">$60.000</span>
-            <span style="font-family: ui-monospace, Menlo, monospace; font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase;" data-i18n="priceUnit">COP · persona / noche</span>
           </div>
         </div>
       </div>
@@ -466,7 +510,7 @@
                 <text x="442" y="472" font-family="Lora, Georgia, serif" font-size="15" font-weight="700" fill="#1F2A24">Juanchaco</text>
               </g>
 
-              <a href="https://maps.google.com/?cid=12604620023476085208" target="_blank" rel="noopener noreferrer" class="svg-link-node">
+              <a href="https://maps.app.goo.gl/8sCjoDaZDSKUP9PJA" target="_blank" rel="noopener noreferrer" class="svg-link-node">
                 <g class="route-point" tabindex="0">
                   <circle class="dot" cx="375" cy="438" r="10" fill="#E07A5F" stroke="#F6F1E8" stroke-width="2"/>
                   <text x="350" y="420" font-family="Lora, Georgia, serif" font-size="17" font-weight="700" fill="#2F5D50">Tangara Hostel · La Barra 📍</text>
@@ -476,7 +520,7 @@
           </div>
           
           <div style="margin-top: 18px; text-align: center;">
-            <a href="https://maps.google.com/?cid=12604620023476085208" target="_blank" rel="noopener noreferrer" class="maps-link" style="background: var(--deep); color: var(--onDeep); border: none; padding: 10px 22px;">
+            <a href="https://maps.app.goo.gl/8sCjoDaZDSKUP9PJA" target="_blank" rel="noopener noreferrer" class="maps-link" style="background: var(--deep); color: var(--onDeep); border: none; padding: 10px 22px;">
               <img src="/uploads/logo-tangara.png" alt="" style="height: 18px; width: auto; filter: brightness(0) invert(1);" /> Abrir ubicación exacta de Tangara Hostel en Google Maps
             </a>
           </div>
